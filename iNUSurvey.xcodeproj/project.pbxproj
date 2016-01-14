@@ -15,6 +15,7 @@
 		4AB96E901C3387E3000DDBF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB96E8E1C3387E3000DDBF8 /* LaunchScreen.storyboard */; };
 		4AB96E9B1C3387E3000DDBF8 /* iNUSurveyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB96E9A1C3387E3000DDBF8 /* iNUSurveyTests.m */; };
 		4AB96EA61C3387E3000DDBF8 /* iNUSurveyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB96EA51C3387E3000DDBF8 /* iNUSurveyUITests.m */; };
+		83F6D0611C476C5D00301C08 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F6D0601C476C5D00301C08 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		4AB96EA11C3387E3000DDBF8 /* iNUSurveyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iNUSurveyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB96EA51C3387E3000DDBF8 /* iNUSurveyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iNUSurveyUITests.m; sourceTree = "<group>"; };
 		4AB96EA71C3387E3000DDBF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83F6D0601C476C5D00301C08 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83F6D0611C476C5D00301C08 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 		4AB96E741C3387E3000DDBF8 = {
 			isa = PBXGroup;
 			children = (
+				83F6D0601C476C5D00301C08 /* libsqlite3.tbd */,
 				4AB96E7F1C3387E3000DDBF8 /* iNUSurvey */,
 				4AB96E991C3387E3000DDBF8 /* iNUSurveyTests */,
 				4AB96EA41C3387E3000DDBF8 /* iNUSurveyUITests */,
@@ -496,6 +500,7 @@
 				4AB96EAC1C3387E3000DDBF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AB96EAD1C3387E3000DDBF8 /* Build configuration list for PBXNativeTarget "iNUSurveyTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +509,7 @@
 				4AB96EAF1C3387E3000DDBF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AB96EB01C3387E3000DDBF8 /* Build configuration list for PBXNativeTarget "iNUSurveyUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +518,7 @@
 				4AB96EB21C3387E3000DDBF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
