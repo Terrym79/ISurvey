@@ -66,6 +66,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="login:" destination="Zjg-03-iMC" eventType="touchUpInside" id="cTf-gG-oTo"/>
                                     <segue destination="1W1-qk-WPs" kind="show" id="BVU-bf-skt"/>
                                 </connections>
                             </button>
@@ -100,8 +101,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="password" destination="anO-td-pP9" id="JHX-qp-X9L"/>
-                        <outlet property="studentID" destination="ciQ-3i-nRx" id="GVL-8e-9A3"/>
+                        <outlet property="password" destination="anO-td-pP9" id="mIh-6z-3DR"/>
+                        <outlet property="studentID" destination="ciQ-3i-nRx" id="NiA-F5-LNX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Xi-vE-v4f" sceneMemberID="firstResponder"/>

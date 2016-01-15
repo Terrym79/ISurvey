@@ -15,6 +15,7 @@
 		4AB96E901C3387E3000DDBF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB96E8E1C3387E3000DDBF8 /* LaunchScreen.storyboard */; };
 		4AB96E9B1C3387E3000DDBF8 /* iNUSurveyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB96E9A1C3387E3000DDBF8 /* iNUSurveyTests.m */; };
 		4AB96EA61C3387E3000DDBF8 /* iNUSurveyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB96EA51C3387E3000DDBF8 /* iNUSurveyUITests.m */; };
+		83FB06A11C4896FC004BA3E9 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FB06A01C4896FC004BA3E9 /* libsqlite3.tbd */; };
 		AB1B19AF1C4745AC00482972 /* PartAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1B19AE1C4745AC00482972 /* PartAViewController.m */; };
 		AB4383381C3B443700AD15AF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4383371C3B443700AD15AF /* LoginViewController.m */; };
 		AB43833B1C3B49BF00AD15AF /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB43833A1C3B49BF00AD15AF /* IntroViewController.m */; };
@@ -55,6 +56,7 @@
 		4AB96EA11C3387E3000DDBF8 /* iNUSurveyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iNUSurveyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB96EA51C3387E3000DDBF8 /* iNUSurveyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iNUSurveyUITests.m; sourceTree = "<group>"; };
 		4AB96EA71C3387E3000DDBF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83FB06A01C4896FC004BA3E9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		AB1B19AD1C4745AC00482972 /* PartAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartAViewController.h; sourceTree = "<group>"; };
 		AB1B19AE1C4745AC00482972 /* PartAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartAViewController.m; sourceTree = "<group>"; };
 		AB4383361C3B443700AD15AF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -70,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83F6D0611C476C5D00301C08 /* libsqlite3.tbd in Frameworks */,
+				83FB06A11C4896FC004BA3E9 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +96,7 @@
 		4AB96E741C3387E3000DDBF8 = {
 			isa = PBXGroup;
 			children = (
-				83F6D0601C476C5D00301C08 /* libsqlite3.tbd */,
+				83FB06A01C4896FC004BA3E9 /* libsqlite3.tbd */,
 				4AB96E7F1C3387E3000DDBF8 /* iNUSurvey */,
 				4AB96E991C3387E3000DDBF8 /* iNUSurveyTests */,
 				4AB96EA41C3387E3000DDBF8 /* iNUSurveyUITests */,
