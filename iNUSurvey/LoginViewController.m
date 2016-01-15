@@ -15,14 +15,27 @@
 @implementation LoginViewController
 
 //Path to SQLite Database
-NSString *docsDir = @"/Users/user114547/Documents/";
+//NSString *docsDir = @"/Users/user114547/Documents/";
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    NSArray *dirPaths;
+    NSString *docsDir;
+    
+    //Get the directory
+    //dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = [dirPaths objectAtIndex:0];
+    
     //Appends the DB filename to the DB path
     _databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"iNUSurvey.sql"]];
+    
+    //Diagnostics displays path to SQLite database file
+    NSLog (@"%@", _databasePath);
+    
     NSFileManager *filemgr = [NSFileManager defaultManager];
     
     //Database not found - Diagnostics
@@ -67,7 +80,8 @@ NSString *docsDir = @"/Users/user114547/Documents/";
             {
                 //diagnostic info
                 NSString *name = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
-                NSString *pass = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];                NSLog(@"Login Successful");
+                NSString *pass = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
+                NSLog(@"Login Successful");
                 
                 //diagnostic output to console
                 printf("%s\n", [name UTF8String]);
