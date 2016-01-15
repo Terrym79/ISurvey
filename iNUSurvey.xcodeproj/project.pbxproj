@@ -15,6 +15,10 @@
 		4AB96E901C3387E3000DDBF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AB96E8E1C3387E3000DDBF8 /* LaunchScreen.storyboard */; };
 		4AB96E9B1C3387E3000DDBF8 /* iNUSurveyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB96E9A1C3387E3000DDBF8 /* iNUSurveyTests.m */; };
 		4AB96EA61C3387E3000DDBF8 /* iNUSurveyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB96EA51C3387E3000DDBF8 /* iNUSurveyUITests.m */; };
+		AB1B19AF1C4745AC00482972 /* PartAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1B19AE1C4745AC00482972 /* PartAViewController.m */; };
+		AB4383381C3B443700AD15AF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4383371C3B443700AD15AF /* LoginViewController.m */; };
+		AB43833B1C3B49BF00AD15AF /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB43833A1C3B49BF00AD15AF /* IntroViewController.m */; };
+		AB43833E1C3B4C8C00AD15AF /* CourseSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB43833D1C3B4C8C00AD15AF /* CourseSelectViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,14 @@
 		4AB96EA11C3387E3000DDBF8 /* iNUSurveyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iNUSurveyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB96EA51C3387E3000DDBF8 /* iNUSurveyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iNUSurveyUITests.m; sourceTree = "<group>"; };
 		4AB96EA71C3387E3000DDBF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB1B19AD1C4745AC00482972 /* PartAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartAViewController.h; sourceTree = "<group>"; };
+		AB1B19AE1C4745AC00482972 /* PartAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartAViewController.m; sourceTree = "<group>"; };
+		AB4383361C3B443700AD15AF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		AB4383371C3B443700AD15AF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		AB4383391C3B49BF00AD15AF /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
+		AB43833A1C3B49BF00AD15AF /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
+		AB43833C1C3B4C8C00AD15AF /* CourseSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSelectViewController.h; sourceTree = "<group>"; };
+		AB43833D1C3B4C8C00AD15AF /* CourseSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSelectViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +118,14 @@
 				4AB96E861C3387E3000DDBF8 /* ViewController.h */,
 				4AB96E871C3387E3000DDBF8 /* ViewController.m */,
 				4AB96E891C3387E3000DDBF8 /* Main.storyboard */,
+				AB1B19AD1C4745AC00482972 /* PartAViewController.h */,
+				AB1B19AE1C4745AC00482972 /* PartAViewController.m */,
+				AB43833C1C3B4C8C00AD15AF /* CourseSelectViewController.h */,
+				AB43833D1C3B4C8C00AD15AF /* CourseSelectViewController.m */,
+				AB4383391C3B49BF00AD15AF /* IntroViewController.h */,
+				AB43833A1C3B49BF00AD15AF /* IntroViewController.m */,
+				AB4383361C3B443700AD15AF /* LoginViewController.h */,
+				AB4383371C3B443700AD15AF /* LoginViewController.m */,
 				4AB96E8C1C3387E3000DDBF8 /* Assets.xcassets */,
 				4AB96E8E1C3387E3000DDBF8 /* LaunchScreen.storyboard */,
 				4AB96E911C3387E3000DDBF8 /* Info.plist */,
@@ -270,9 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB4383381C3B443700AD15AF /* LoginViewController.m in Sources */,
 				4AB96E881C3387E3000DDBF8 /* ViewController.m in Sources */,
 				4AB96E851C3387E3000DDBF8 /* AppDelegate.m in Sources */,
+				AB1B19AF1C4745AC00482972 /* PartAViewController.m in Sources */,
+				AB43833E1C3B4C8C00AD15AF /* CourseSelectViewController.m in Sources */,
 				4AB96E821C3387E3000DDBF8 /* main.m in Sources */,
+				AB43833B1C3B49BF00AD15AF /* IntroViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +435,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = iNUSurvey/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thetechplie.iNUSurvey;
@@ -422,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = iNUSurvey/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thetechplie.iNUSurvey;
@@ -496,6 +522,7 @@
 				4AB96EAC1C3387E3000DDBF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AB96EAD1C3387E3000DDBF8 /* Build configuration list for PBXNativeTarget "iNUSurveyTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +531,7 @@
 				4AB96EAF1C3387E3000DDBF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AB96EB01C3387E3000DDBF8 /* Build configuration list for PBXNativeTarget "iNUSurveyUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +540,7 @@
 				4AB96EB21C3387E3000DDBF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
