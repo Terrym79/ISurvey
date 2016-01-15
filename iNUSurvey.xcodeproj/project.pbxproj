@@ -70,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83F6D0611C476C5D00301C08 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +94,7 @@
 		4AB96E741C3387E3000DDBF8 = {
 			isa = PBXGroup;
 			children = (
+				83F6D0601C476C5D00301C08 /* libsqlite3.tbd */,
 				4AB96E7F1C3387E3000DDBF8 /* iNUSurvey */,
 				4AB96E991C3387E3000DDBF8 /* iNUSurveyTests */,
 				4AB96EA41C3387E3000DDBF8 /* iNUSurveyUITests */,
