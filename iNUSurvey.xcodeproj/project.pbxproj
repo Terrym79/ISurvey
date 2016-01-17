@@ -20,6 +20,9 @@
 		AB4383381C3B443700AD15AF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4383371C3B443700AD15AF /* LoginViewController.m */; };
 		AB43833B1C3B49BF00AD15AF /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB43833A1C3B49BF00AD15AF /* IntroViewController.m */; };
 		AB43833E1C3B4C8C00AD15AF /* CourseSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB43833D1C3B4C8C00AD15AF /* CourseSelectViewController.m */; };
+		AB86E78E1C49CF750040E99B /* NULogo Login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB86E78D1C49CF750040E99B /* NULogo Login.jpg */; };
+		AB86E7901C49D2820040E99B /* NULogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB86E78F1C49D2820040E99B /* NULogo.jpg */; };
+		AB86E7931C4AF1BF0040E99B /* PartCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB86E7921C4AF1BF0040E99B /* PartCViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,10 @@
 		AB43833A1C3B49BF00AD15AF /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
 		AB43833C1C3B4C8C00AD15AF /* CourseSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSelectViewController.h; sourceTree = "<group>"; };
 		AB43833D1C3B4C8C00AD15AF /* CourseSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSelectViewController.m; sourceTree = "<group>"; };
+		AB86E78D1C49CF750040E99B /* NULogo Login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "NULogo Login.jpg"; path = "Images/NULogo Login.jpg"; sourceTree = "<group>"; };
+		AB86E78F1C49D2820040E99B /* NULogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = NULogo.jpg; path = Images/NULogo.jpg; sourceTree = "<group>"; };
+		AB86E7911C4AF1BF0040E99B /* PartCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartCViewController.h; sourceTree = "<group>"; };
+		AB86E7921C4AF1BF0040E99B /* PartCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartCViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +124,13 @@
 		4AB96E7F1C3387E3000DDBF8 /* iNUSurvey */ = {
 			isa = PBXGroup;
 			children = (
+				4AB96E891C3387E3000DDBF8 /* Main.storyboard */,
 				4AB96E831C3387E3000DDBF8 /* AppDelegate.h */,
 				4AB96E841C3387E3000DDBF8 /* AppDelegate.m */,
 				4AB96E861C3387E3000DDBF8 /* ViewController.h */,
 				4AB96E871C3387E3000DDBF8 /* ViewController.m */,
-				4AB96E891C3387E3000DDBF8 /* Main.storyboard */,
+				AB86E7911C4AF1BF0040E99B /* PartCViewController.h */,
+				AB86E7921C4AF1BF0040E99B /* PartCViewController.m */,
 				AB1B19AD1C4745AC00482972 /* PartAViewController.h */,
 				AB1B19AE1C4745AC00482972 /* PartAViewController.m */,
 				AB43833C1C3B4C8C00AD15AF /* CourseSelectViewController.h */,
@@ -141,6 +150,8 @@
 		4AB96E801C3387E3000DDBF8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AB86E78F1C49D2820040E99B /* NULogo.jpg */,
+				AB86E78D1C49CF750040E99B /* NULogo Login.jpg */,
 				4AB96E811C3387E3000DDBF8 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -267,8 +278,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB86E78E1C49CF750040E99B /* NULogo Login.jpg in Resources */,
 				4AB96E901C3387E3000DDBF8 /* LaunchScreen.storyboard in Resources */,
 				4AB96E8D1C3387E3000DDBF8 /* Assets.xcassets in Resources */,
+				AB86E7901C49D2820040E99B /* NULogo.jpg in Resources */,
 				4AB96E8B1C3387E3000DDBF8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB4383381C3B443700AD15AF /* LoginViewController.m in Sources */,
+				AB86E7931C4AF1BF0040E99B /* PartCViewController.m in Sources */,
 				4AB96E881C3387E3000DDBF8 /* ViewController.m in Sources */,
 				4AB96E851C3387E3000DDBF8 /* AppDelegate.m in Sources */,
 				AB1B19AF1C4745AC00482972 /* PartAViewController.m in Sources */,

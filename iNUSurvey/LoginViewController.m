@@ -50,7 +50,7 @@
         printf("Database exists and is ready");  //Console output
     }
 }
-
+  //Releases the keyboard
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }
