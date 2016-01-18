@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sqlite3.h>
 
 @interface CourseSelectViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+
+//Database related properties
+@property(strong, nonatomic) NSString *databasePath;
+@property(nonatomic) sqlite3 *DB;
+
+//Picker related properties
+@property (nonatomic, retain)NSMutableArray *coursesToSelect;
+@property (weak, nonatomic) IBOutlet UIPickerView *courseSelectPicker;
+
+//Data passing related properties
+@property (weak, nonatomic) NSString *strStudentID;
+@property (nonatomic) int intEnrollmentID;
+@property (strong, nonatomic) NSString *strClassNo;
 
 @end

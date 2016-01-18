@@ -10,4 +10,7 @@
 
 @interface IntroViewController : UIViewController
 
+//Data passing properties
+@property NSString *strStudentID;
+
 @end

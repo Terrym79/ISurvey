@@ -7,6 +7,7 @@
 //
 
 #import "IntroViewController.h"
+#import "CourseSelectViewController.h"
 
 @interface IntroViewController ()
 
@@ -14,14 +15,25 @@
 
 @implementation IntroViewController
 
+@synthesize strStudentID;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+   // printf("\n\n\n%s\n", [name UTF8String]);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    CourseSelectViewController *csvc;
+    csvc = [segue destinationViewController];
+    csvc.strStudentID = strStudentID;
 }
 
 /*

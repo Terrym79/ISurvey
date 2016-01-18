@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zjg-03-iMC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zjg-03-iMC">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -74,7 +74,7 @@
                                 </state>
                                 <connections>
                                     <action selector="login:" destination="Zjg-03-iMC" eventType="touchUpInside" id="cTf-gG-oTo"/>
-                                    <segue destination="1W1-qk-WPs" kind="show" id="BVU-bf-skt"/>
+                                    <segue destination="1W1-qk-WPs" kind="show" identifier="showIntro" id="BVU-bf-skt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iNUSurvey" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="MjS-T0-UPS">
@@ -166,7 +166,7 @@ NOTE: All progress will be saved until the submit button is selected on the last
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BvS-YR-86d" kind="show" id="XzJ-K5-UKI"/>
+                                    <segue destination="BvS-YR-86d" kind="show" identifier="showCourseSelect" id="XzJ-K5-UKI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iNUSurvey" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNS-ko-sYr">
@@ -297,6 +297,7 @@ NOTE: All progress will be saved until the submit button is selected on the last
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="courseSelectPicker" destination="pvD-Tb-myu" id="YDW-L6-AwW"/>
                         <segue destination="sN0-Lu-vNa" kind="show" id="eAg-yM-5lo"/>
                     </connections>
                 </viewController>
@@ -364,7 +365,7 @@ NOTE: All progress will be saved until the submit button is selected on the last
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="3h8-IH-Wlm"/>
                                 </constraints>
-                                <color key="barTintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="CSC 480A" id="B9J-Tx-8iX">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="cek-dZ-1qE"/>
@@ -456,7 +457,7 @@ NOTE: All progress will be saved until the submit button is selected on the last
                             </textView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Hl-V9-NKS">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <color key="barTintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="CSC 480A" id="tJ2-Fx-EgY">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="raz-Yw-5be">
@@ -512,9 +513,9 @@ NOTE: All progress will be saved until the submit button is selected on the last
     </scenes>
     <resources>
         <image name="NULogo Login.jpg" width="505" height="300"/>
-        <image name="NULogo.jpg" width="145" height="139"/>
+        <image name="NULogo.jpg" width="138" height="140"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F4S-8g-Y6e"/>
+        <segue reference="eAg-yM-5lo"/>
     </inferredMetricsTieBreakers>
 </document>

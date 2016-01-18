@@ -7,12 +7,15 @@
 //
 
 #import "LoginViewController.h"
+#import "IntroViewController.h"
 
 @interface LoginViewController ()
 
 @end
 
 @implementation LoginViewController
+
+@synthesize studentID, password;
 
 //Path to SQLite Database
 //NSString *docsDir = @"/Users/user114547/Documents/";
@@ -34,7 +37,7 @@
     _databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"iNUSurvey.sql"]];
     
     //Diagnostics displays path to SQLite database file
-    NSLog (@"%@", _databasePath);
+    NSLog (@"Database path: %@\n", _databasePath);
     
     NSFileManager *filemgr = [NSFileManager defaultManager];
     
@@ -47,7 +50,7 @@
     //Database is found - Diagnostics
     else
     {
-        printf("Database exists and is ready");  //Console output
+        printf("Database exists and is ready\n");  //Console output
     }
 }
   //Releases the keyboard
@@ -69,7 +72,7 @@
     if(sqlite3_open(dbpath, &_DB) == SQLITE_OK)
     {
         //Query to compare _studentID.text and _password.text
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT STUDENT.StudentID, STUDENT_AUTH.PasswordHash FROM STUDENT INNER JOIN STUDENT_AUTH WHERE STUDENT.StudentID = STUDENT_AUTH.StudentID AND STUDENT.StudentID = '%@' AND STUDENT_AUTH.PasswordHash = '%@'", _studentID.text, _password.text];
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT STUDENT.StudentID, STUDENT_AUTH.PasswordHash FROM STUDENT INNER JOIN STUDENT_AUTH WHERE STUDENT.StudentID = STUDENT_AUTH.StudentID AND STUDENT.StudentID = '%@' AND STUDENT_AUTH.PasswordHash = '%@'", studentID.text, password.text];
         
         const char *query_statement = [querySQL UTF8String];
         
@@ -81,11 +84,11 @@
                 //diagnostic info
                 NSString *name = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
                 NSString *pass = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
-                NSLog(@"Login Successful");
+                NSLog(@"Login Successful\n");
                 
                 //diagnostic output to console
-                printf("%s\n", [name UTF8String]);
-                printf("%s\n", [pass UTF8String]);
+                printf("Entered username: %s\n", [name UTF8String]);
+                printf("Entered password: %s\n", [pass UTF8String]);
             }
             
             //StudentID and password are not a match-FAILURE
@@ -100,7 +103,7 @@
                 [self presentViewController:loginFailed animated:YES completion:nil];
                 
                 //Blank the password textbox
-                _password.text = @"";
+                password.text = @"";
                 
                 sqlite3_finalize(statement);
                 sqlite3_close(_DB);
@@ -110,6 +113,13 @@
     
 }
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    IntroViewController *ivc;
+    ivc = [segue destinationViewController];
+    ivc.strStudentID = studentID.text;
+}
+
 /*
 #pragma mark - Navigation
 
@@ -117,7 +127,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-}
+ }
 */
 
 @end
