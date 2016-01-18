@@ -29,6 +29,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Will pass the value for the StudentID that was entered in the Login module
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     CourseSelectViewController *csvc;

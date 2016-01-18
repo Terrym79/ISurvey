@@ -13,7 +13,7 @@
 
 @implementation CourseSelectViewController
 
-@synthesize strStudentID, coursesToSelect, intEnrollmentID, strClassNo, databasePath, DB;
+@synthesize strStudentID, coursesToSelect, intEnrollmentID, strClassNo, databasePath, DB, courseSelectPicker;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -79,7 +79,7 @@
             NSLog(@"Database returned error %d: %s", sqlite3_errcode(DB), sqlite3_errmsg(DB));
         }
     }
-    
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,6 +103,12 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component __TVOS_PROHIBITED
 {
+    NSString *courseSelection;
+    
+    row = [courseSelectPicker selectedRowInComponent:0];
+    courseSelection = [coursesToSelect objectAtIndex:row];
+    
+    NSLog(row);
 }
 
 
