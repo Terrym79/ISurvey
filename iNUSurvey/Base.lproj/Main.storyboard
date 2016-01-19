@@ -364,7 +364,7 @@ NOTE: All progress will be saved until the submit button is selected on the last
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="3h8-IH-Wlm"/>
                                 </constraints>
-                                <color key="barTintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="CSC 480A" id="B9J-Tx-8iX">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="cek-dZ-1qE"/>
@@ -456,7 +456,7 @@ NOTE: All progress will be saved until the submit button is selected on the last
                             </textView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Hl-V9-NKS">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <color key="barTintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="CSC 480A" id="tJ2-Fx-EgY">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="raz-Yw-5be">
@@ -512,9 +512,9 @@ NOTE: All progress will be saved until the submit button is selected on the last
     </scenes>
     <resources>
         <image name="NULogo Login.jpg" width="505" height="300"/>
-        <image name="NULogo.jpg" width="145" height="139"/>
+        <image name="NULogo.jpg" width="160" height="156"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F4S-8g-Y6e"/>
+        <segue reference="eAg-yM-5lo"/>
     </inferredMetricsTieBreakers>
 </document>
