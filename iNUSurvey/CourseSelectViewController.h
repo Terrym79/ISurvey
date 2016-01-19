@@ -18,10 +18,13 @@
 //Picker related properties
 @property (nonatomic, retain)NSMutableArray *coursesToSelect;
 @property (weak, nonatomic) IBOutlet UIPickerView *courseSelectPicker;
+@property (weak, nonatomic) NSString *courseSelection;
 
 //Data passing related properties
 @property (weak, nonatomic) NSString *strStudentID;
 @property (nonatomic) int intEnrollmentID;
 @property (strong, nonatomic) NSString *strClassNo;
-
+@property (strong, nonatomic) NSString *strCourseNo;
+@property (strong, nonatomic) NSString *strDescription;
+@property (strong, nonatomic) NSString *strEnrollmentID;
 @end

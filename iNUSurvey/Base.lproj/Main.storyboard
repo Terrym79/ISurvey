@@ -260,9 +260,6 @@ NOTE: All progress will be saved until the submit button is selected on the last
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="sN0-Lu-vNa" kind="show" id="MM1-pR-SfS"/>
-                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvD-Tb-myu">
                                 <rect key="frame" x="20" y="220" width="560" height="216"/>
@@ -279,6 +276,17 @@ NOTE: All progress will be saved until the submit button is selected on the last
                                     <constraint firstAttribute="width" constant="35" id="nQG-Ij-d56"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SB1-zL-cGs">
+                                <rect key="frame" x="265" y="463" width="70" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButton:" destination="BvS-YR-86d" eventType="touchUpInside" id="N8j-by-Vi0"/>
+                                    <segue destination="sN0-Lu-vNa" kind="show" id="cjK-Tk-bwS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0078431372550000003" green="0.14117647059999999" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -298,7 +306,6 @@ NOTE: All progress will be saved until the submit button is selected on the last
                     </view>
                     <connections>
                         <outlet property="courseSelectPicker" destination="pvD-Tb-myu" id="YDW-L6-AwW"/>
-                        <segue destination="sN0-Lu-vNa" kind="show" id="eAg-yM-5lo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LaW-Ax-gwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -516,6 +523,6 @@ NOTE: All progress will be saved until the submit button is selected on the last
         <image name="NULogo.jpg" width="138" height="140"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eAg-yM-5lo"/>
+        <segue reference="cjK-Tk-bwS"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -16,6 +16,8 @@
 
 @implementation PartAViewController
 
+@synthesize strClassNo, strCourseNo, strDescription, strStudentID, intEnrollmentID;
+
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
 }
@@ -32,6 +34,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.responses = @[@"Strongly Agree", @"Agree", @"Neutral", @"Disagree", @"Strongly Disagree"];
+    
+    printf("%s\n", [strStudentID UTF8String]);
+    printf("%s\n", [strDescription UTF8String]);
+    printf("%s\n", [strCourseNo UTF8String]);
+    printf("%s\n", [strClassNo UTF8String]);
+    printf("%d\n", intEnrollmentID);
 }
 
 

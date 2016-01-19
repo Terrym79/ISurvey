@@ -10,4 +10,10 @@
 
 @interface PartAViewController : UIViewController
 
+@property (weak, nonatomic) NSString *strStudentID;
+@property (weak, nonatomic) NSString *strDescription;
+@property (weak, nonatomic) NSString *strCourseNo;
+@property (weak, nonatomic) NSString *strClassNo;
+@property (nonatomic) int intEnrollmentID;
+
 @end
