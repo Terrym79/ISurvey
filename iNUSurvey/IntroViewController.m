@@ -20,8 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-   // printf("\n\n\n%s\n", [name UTF8String]);
 }
 
 - (void)didReceiveMemoryWarning {
