@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zjg-03-iMC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zjg-03-iMC">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -147,15 +147,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SM-ie-QX8">
-                                <rect key="frame" x="51" y="227" width="498" height="246"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">
-These assessments are used to improve the quality of instruction; please take time to provide carefully considered responses. Your responses are completely anonymous. Instructors do not receive survey results until after grades are posted.
-NOTE: All progress will be saved until the submit button is selected on the last page.</string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxF-QO-0ZY">
                                 <rect key="frame" x="248" y="517" width="104" height="30"/>
                                 <constraints>
@@ -195,6 +186,15 @@ NOTE: All progress will be saved until the submit button is selected on the last
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SM-ie-QX8">
+                                <rect key="frame" x="51" y="227" width="498" height="246"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">
+These assessments are used to improve the quality of instruction; please take time to provide carefully considered responses. Your responses are completely anonymous. Instructors do not receive survey results until after grades are posted.
+NOTE: All progress will be saved until the submit button is selected on the last page.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.0078431372550000003" green="0.14117647059999999" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -236,7 +236,7 @@ NOTE: All progress will be saved until the submit button is selected on the last
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Student End-of-Course Survey" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nie-l4-Ld3">
                                 <rect key="frame" x="137" y="20" width="326" height="76"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="6pl-Y2-u6d"/>
+                                    <constraint firstAttribute="height" constant="76" id="uwl-6I-RYI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -245,22 +245,12 @@ NOTE: All progress will be saved until the submit button is selected on the last
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select a Course to Evaluate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0j-h0-O3V">
                                 <rect key="frame" x="137" y="104" width="326" height="76"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="tBX-KM-oYY"/>
+                                    <constraint firstAttribute="height" constant="76" id="pOv-Fj-vnF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBX-JB-YvN">
-                                <rect key="frame" x="263" y="515" width="75" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="U4g-Vr-Bsm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvD-Tb-myu">
                                 <rect key="frame" x="20" y="220" width="560" height="216"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -272,36 +262,46 @@ NOTE: All progress will be saved until the submit button is selected on the last
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NULogo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wch-dr-2jP">
                                 <rect key="frame" x="20" y="25" width="35" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="SRx-a0-nmP"/>
-                                    <constraint firstAttribute="width" constant="35" id="nQG-Ij-d56"/>
+                                    <constraint firstAttribute="height" constant="35" id="AJU-TG-nUo"/>
+                                    <constraint firstAttribute="width" constant="35" id="LKd-c2-PAJ"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SB1-zL-cGs">
-                                <rect key="frame" x="265" y="463" width="70" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextButton:" destination="BvS-YR-86d" eventType="touchUpInside" id="N8j-by-Vi0"/>
-                                    <segue destination="sN0-Lu-vNa" kind="show" id="cjK-Tk-bwS"/>
-                                </connections>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfR-Z0-NjS">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem id="189-aq-vMf">
+                                        <nil key="title"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="6Vw-I3-Un2">
+                                            <connections>
+                                                <segue destination="1W1-qk-WPs" kind="show" id="8TZ-HN-pZp"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Next" id="v4Q-lh-CNO">
+                                            <connections>
+                                                <action selector="nextButton:" destination="BvS-YR-86d" id="aea-Fb-Zme"/>
+                                                <segue destination="sN0-Lu-vNa" kind="show" id="1fu-sU-vXD"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.0078431372550000003" green="0.14117647059999999" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="pvD-Tb-myu" firstAttribute="top" secondItem="Q0j-h0-O3V" secondAttribute="bottom" constant="40" id="3KF-Ez-8Rt"/>
-                            <constraint firstItem="pvD-Tb-myu" firstAttribute="leading" secondItem="jCF-6e-F5Z" secondAttribute="leadingMargin" id="8oO-bE-3SK"/>
-                            <constraint firstItem="bBX-JB-YvN" firstAttribute="centerX" secondItem="pvD-Tb-myu" secondAttribute="centerX" id="DME-7H-OkU"/>
-                            <constraint firstItem="lHy-U1-iNM" firstAttribute="top" secondItem="bBX-JB-YvN" secondAttribute="bottom" constant="55" id="HkQ-tD-S8b"/>
-                            <constraint firstItem="Q0j-h0-O3V" firstAttribute="leading" secondItem="Nie-l4-Ld3" secondAttribute="leading" id="YMN-I5-lqg"/>
-                            <constraint firstItem="wch-dr-2jP" firstAttribute="top" secondItem="YFw-VJ-SpA" secondAttribute="bottom" constant="5" id="Zic-Ue-Wa8"/>
-                            <constraint firstItem="pvD-Tb-myu" firstAttribute="centerX" secondItem="Q0j-h0-O3V" secondAttribute="centerX" id="bA3-2q-NHO"/>
-                            <constraint firstItem="Q0j-h0-O3V" firstAttribute="top" secondItem="Nie-l4-Ld3" secondAttribute="bottom" constant="8" symbolic="YES" id="cf8-BR-cQ6"/>
-                            <constraint firstItem="pvD-Tb-myu" firstAttribute="trailing" secondItem="jCF-6e-F5Z" secondAttribute="trailingMargin" id="gZP-z2-629"/>
-                            <constraint firstItem="Nie-l4-Ld3" firstAttribute="top" secondItem="YFw-VJ-SpA" secondAttribute="bottom" id="n0f-xu-qi0"/>
-                            <constraint firstItem="Nie-l4-Ld3" firstAttribute="trailing" secondItem="Q0j-h0-O3V" secondAttribute="trailing" id="pGs-wn-WYo"/>
-                            <constraint firstItem="wch-dr-2jP" firstAttribute="leading" secondItem="pvD-Tb-myu" secondAttribute="leading" id="v9A-6F-2rk"/>
+                            <constraint firstItem="Q0j-h0-O3V" firstAttribute="top" secondItem="Nie-l4-Ld3" secondAttribute="bottom" constant="8" symbolic="YES" id="4Eu-7C-0ge"/>
+                            <constraint firstItem="kfR-Z0-NjS" firstAttribute="bottom" secondItem="lHy-U1-iNM" secondAttribute="top" id="8Dv-Ir-JIZ"/>
+                            <constraint firstItem="pvD-Tb-myu" firstAttribute="leading" secondItem="jCF-6e-F5Z" secondAttribute="leadingMargin" id="C7p-vQ-Qty"/>
+                            <constraint firstItem="wch-dr-2jP" firstAttribute="leading" secondItem="pvD-Tb-myu" secondAttribute="leading" id="I2l-wo-7vL"/>
+                            <constraint firstAttribute="trailing" secondItem="kfR-Z0-NjS" secondAttribute="trailing" id="QEc-Kz-Jnx"/>
+                            <constraint firstItem="Nie-l4-Ld3" firstAttribute="top" secondItem="YFw-VJ-SpA" secondAttribute="bottom" id="b1F-tU-l52"/>
+                            <constraint firstItem="pvD-Tb-myu" firstAttribute="centerX" secondItem="Q0j-h0-O3V" secondAttribute="centerX" id="cEE-Sx-qcg"/>
+                            <constraint firstItem="pvD-Tb-myu" firstAttribute="centerX" secondItem="kfR-Z0-NjS" secondAttribute="centerX" id="iW4-VD-EvY"/>
+                            <constraint firstItem="kfR-Z0-NjS" firstAttribute="leading" secondItem="jCF-6e-F5Z" secondAttribute="leading" id="k6D-85-deB"/>
+                            <constraint firstItem="Nie-l4-Ld3" firstAttribute="leading" secondItem="Q0j-h0-O3V" secondAttribute="leading" id="qIx-YF-7zG"/>
+                            <constraint firstItem="Nie-l4-Ld3" firstAttribute="trailing" secondItem="Q0j-h0-O3V" secondAttribute="trailing" id="rhb-Rv-h3S"/>
+                            <constraint firstItem="pvD-Tb-myu" firstAttribute="top" secondItem="Q0j-h0-O3V" secondAttribute="bottom" constant="40" id="voN-nu-tnl"/>
+                            <constraint firstItem="wch-dr-2jP" firstAttribute="top" secondItem="YFw-VJ-SpA" secondAttribute="bottom" constant="5" id="vwj-CX-UkQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -375,7 +375,11 @@ NOTE: All progress will be saved until the submit button is selected on the last
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="CSC 480A" id="B9J-Tx-8iX">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="cek-dZ-1qE"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="cek-dZ-1qE">
+                                            <connections>
+                                                <segue destination="BvS-YR-86d" kind="show" id="Mz4-AE-rw6"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="wt0-nE-N34">
                                             <connections>
                                                 <segue destination="1zn-ln-zwq" kind="show" id="FEP-tW-yZK"/>
@@ -520,9 +524,11 @@ NOTE: All progress will be saved until the submit button is selected on the last
     </scenes>
     <resources>
         <image name="NULogo Login.jpg" width="505" height="300"/>
-        <image name="NULogo.jpg" width="138" height="140"/>
+        <image name="NULogo.jpg" width="160" height="156"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cjK-Tk-bwS"/>
+        <segue reference="1fu-sU-vXD"/>
+        <segue reference="XzJ-K5-UKI"/>
+        <segue reference="8TZ-HN-pZp"/>
     </inferredMetricsTieBreakers>
 </document>
