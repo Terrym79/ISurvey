@@ -117,7 +117,7 @@
 {
     IntroViewController *ivc;
     ivc = [segue destinationViewController];
-    //ivc.strStudentID = studentID.text;
+    ivc.strStudentID = studentID.text;
 }
 
 /*

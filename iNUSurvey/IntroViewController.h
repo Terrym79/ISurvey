@@ -13,7 +13,8 @@
     
     @property(strong, nonatomic) NSString *databasePath;
     @property(nonatomic) sqlite3 *DB;
-    @property (weak, nonatomic) IBOutlet UILabel *introductionText;
+    @property (weak, nonatomic) IBOutlet UILabel *introText;
+    @property (weak, nonatomic) NSString *strStudentID;
 
 
 @end

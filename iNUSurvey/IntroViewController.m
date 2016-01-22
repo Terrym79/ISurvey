@@ -13,7 +13,7 @@
 @end
 
 @implementation IntroViewController
-@synthesize introductionText, databasePath, DB;
+@synthesize introText, databasePath, DB, strStudentID;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,6 +39,7 @@
         //Query to get introText
         NSString *querySQL = [NSString stringWithFormat:@"SELECT INTRODUCTION.IntroText from INTRODUCTION order by introductionID DESC LIMIT 1"];
         
+        
         if(sqlite3_prepare_v2(DB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
         {
             
@@ -46,13 +47,12 @@
             {
                 NSString *intText = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
                 
-                introductionText.text = intText;
+                introText.text = intText;
             }
         }
         
        
     }
-
     
 }
 
@@ -67,7 +67,14 @@
 }
 
 
+//Passing values to next View controller (Part A)
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    IntroViewController *introVc;
+    introVc  = [segue destinationViewController];
+    introVc.strStudentID = strStudentID;
 
+}
 
 /*
 #pragma mark - Navigation
