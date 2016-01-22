@@ -15,5 +15,7 @@
     @property(nonatomic) sqlite3 *DB;
     @property (weak, nonatomic) IBOutlet UILabel *introductionText;
 
+    //Data passing related properties
+    @property (weak, nonatomic) NSString *strStudentID;
 
 @end

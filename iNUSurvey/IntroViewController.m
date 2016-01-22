@@ -13,7 +13,7 @@
 @end
 
 @implementation IntroViewController
-@synthesize introductionText, databasePath, DB;
+@synthesize introductionText, databasePath, DB, strStudentID;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -66,8 +66,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    IntroViewController *csvc;
+    csvc = [segue destinationViewController];
+    csvc.strStudentID = strStudentID;
+}
 
 /*
 #pragma mark - Navigation
