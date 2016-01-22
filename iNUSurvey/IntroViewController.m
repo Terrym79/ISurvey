@@ -7,19 +7,58 @@
 //
 
 #import "IntroViewController.h"
-#import "CourseSelectViewController.h"
 
 @interface IntroViewController ()
 
 @end
 
 @implementation IntroViewController
-
-@synthesize strStudentID;
+@synthesize introductionText, databasePath, DB;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSArray *dirPaths;
+    NSString *docsDir;
+    
+    //Get the directory
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = [dirPaths objectAtIndex:0];
+    
+    //Appends the DB filename to the DB path
+    databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"iNUSurvey.sql"]];
+    
+    sqlite3_stmt *statement;
+    const char *dbpath = [databasePath UTF8String];
+    
+    
+    
+    //Database open is successful
+    if(sqlite3_open(dbpath, & DB) == SQLITE_OK)
+    {
+        //Query to get introText
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT INTRODUCTION.IntroText from INTRODUCTION order by introductionID DESC LIMIT 1"];
+        
+        if(sqlite3_prepare_v2(DB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
+        {
+            
+            if(sqlite3_step(statement) == SQLITE_ROW)
+            {
+                NSString *intText = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
+                
+                introductionText.text = intText;
+            }
+        }
+        
+       
+    }
+
+    
+}
+
+//Releases the keyboard
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,13 +66,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-//Will pass the value for the StudentID that was entered in the Login module
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    CourseSelectViewController *csvc;
-    csvc = [segue destinationViewController];
-    csvc.strStudentID = strStudentID;
-}
+
+
 
 /*
 #pragma mark - Navigation

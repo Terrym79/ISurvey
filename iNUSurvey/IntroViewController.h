@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sqlite3.h>
 
 @interface IntroViewController : UIViewController
+    
+    @property(strong, nonatomic) NSString *databasePath;
+    @property(nonatomic) sqlite3 *DB;
+    @property (weak, nonatomic) IBOutlet UILabel *introductionText;
 
-//Data passing properties
-@property NSString *strStudentID;
 
 @end
