@@ -18,6 +18,11 @@
 
 @synthesize strStudentID, coursesToSelect, courseSelection, intEnrollmentID, strClassNo, databasePath, DB, courseSelectPicker, strDescription, strCourseNo, strEnrollmentID;
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

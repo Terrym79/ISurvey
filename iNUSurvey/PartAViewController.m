@@ -18,6 +18,11 @@
 
 @synthesize strClassNo, strCourseNo, strDescription, strStudentID, intEnrollmentID;
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
 }

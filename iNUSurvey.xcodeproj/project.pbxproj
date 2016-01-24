@@ -58,7 +58,7 @@
 		4AB96E9C1C3387E3000DDBF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AB96EA11C3387E3000DDBF8 /* iNUSurveyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iNUSurveyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB96EA51C3387E3000DDBF8 /* iNUSurveyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iNUSurveyUITests.m; sourceTree = "<group>"; };
-		4AB96EA71C3387E3000DDBF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AB96EA71C3387E3000DDBF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = iNUSurveyUITests/Info.plist; sourceTree = SOURCE_ROOT; };
 		83FB06A01C4896FC004BA3E9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		AB1B19AD1C4745AC00482972 /* PartAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartAViewController.h; sourceTree = "<group>"; };
 		AB1B19AE1C4745AC00482972 /* PartAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartAViewController.m; sourceTree = "<group>"; };
@@ -169,8 +169,8 @@
 		4AB96EA41C3387E3000DDBF8 /* iNUSurveyUITests */ = {
 			isa = PBXGroup;
 			children = (
-				4AB96EA51C3387E3000DDBF8 /* iNUSurveyUITests.m */,
 				4AB96EA71C3387E3000DDBF8 /* Info.plist */,
+				4AB96EA51C3387E3000DDBF8 /* iNUSurveyUITests.m */,
 			);
 			path = iNUSurveyUITests;
 			sourceTree = "<group>";
