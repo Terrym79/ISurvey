@@ -137,7 +137,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student End-of-Course Survey Introduction" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kai-VQ-CjS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Student End-of-Course Survey Introduction" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kai-VQ-CjS">
                                 <rect key="frame" x="137" y="143" width="326" height="76"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="326" id="Qib-0n-eLt"/>
@@ -160,7 +160,7 @@
                                     <segue destination="BvS-YR-86d" kind="show" identifier="showCourseSelect" id="XzJ-K5-UKI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iNUSurvey" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNS-ko-sYr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="iNUSurvey" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNS-ko-sYr">
                                 <rect key="frame" x="171" y="28" width="259" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="259" id="6Va-ZT-xPx"/>
@@ -177,7 +177,7 @@
                                     <constraint firstAttribute="height" constant="35" id="lRq-C2-foJ"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Assessment System" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JC4-65-QHe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Course Assessment System" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JC4-65-QHe">
                                 <rect key="frame" x="171" y="79" width="259" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="HHi-UE-NRX"/>
@@ -186,29 +186,21 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SM-ie-QX8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGN-sw-Ki5">
                                 <rect key="frame" x="51" y="227" width="498" height="246"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">
-These assessments are used to improve the quality of instruction; please take time to provide carefully considered responses. Your responses are completely anonymous. Instructors do not receive survey results until after grades are posted.
-NOTE: All progress will be saved until the submit button is selected on the last page.</string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0078431372550000003" green="0.14117647059999999" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="JC4-65-QHe" firstAttribute="leading" secondItem="JNS-ko-sYr" secondAttribute="leading" id="1fn-Ul-gH8"/>
-                            <constraint firstItem="5SM-ie-QX8" firstAttribute="centerX" secondItem="Kai-VQ-CjS" secondAttribute="centerX" id="3Uu-FF-IRy"/>
                             <constraint firstItem="JNS-ko-sYr" firstAttribute="top" secondItem="1BQ-WF-2QV" secondAttribute="bottom" constant="8" symbolic="YES" id="88r-Zc-Eoa"/>
                             <constraint firstItem="hxF-QO-0ZY" firstAttribute="centerX" secondItem="VhA-lm-Gg4" secondAttribute="centerX" id="NVL-hJ-Yfk"/>
-                            <constraint firstItem="5SM-ie-QX8" firstAttribute="top" secondItem="Kai-VQ-CjS" secondAttribute="bottom" constant="8" symbolic="YES" id="V1H-dr-qpt"/>
-                            <constraint firstItem="hxF-QO-0ZY" firstAttribute="top" secondItem="5SM-ie-QX8" secondAttribute="bottom" constant="44" id="Vm2-Og-gFS"/>
                             <constraint firstItem="JC4-65-QHe" firstAttribute="top" secondItem="JNS-ko-sYr" secondAttribute="bottom" constant="30" id="Vuu-NF-jUK"/>
                             <constraint firstItem="Kai-VQ-CjS" firstAttribute="centerX" secondItem="JC4-65-QHe" secondAttribute="centerX" id="cN2-XD-GXs"/>
-                            <constraint firstItem="5SM-ie-QX8" firstAttribute="leading" secondItem="VhA-lm-Gg4" secondAttribute="leadingMargin" constant="31" id="ddZ-H7-H7O"/>
                             <constraint firstItem="JNS-ko-sYr" firstAttribute="trailing" secondItem="JC4-65-QHe" secondAttribute="trailing" id="e8P-Y8-OCY"/>
-                            <constraint firstItem="hxF-QO-0ZY" firstAttribute="centerX" secondItem="5SM-ie-QX8" secondAttribute="centerX" id="eQ6-tM-ZQi"/>
                             <constraint firstItem="Lla-Bl-MYf" firstAttribute="top" secondItem="hxF-QO-0ZY" secondAttribute="bottom" constant="53" id="jsk-qe-Pea"/>
                             <constraint firstItem="UeV-dT-T5A" firstAttribute="top" secondItem="1BQ-WF-2QV" secondAttribute="bottom" constant="5" id="nro-PX-zxh"/>
                             <constraint firstItem="Kai-VQ-CjS" firstAttribute="top" secondItem="JC4-65-QHe" secondAttribute="bottom" constant="40" id="rG5-O8-756"/>
@@ -216,6 +208,9 @@ NOTE: All progress will be saved until the submit button is selected on the last
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oCc-x7-vOZ"/>
+                    <connections>
+                        <outlet property="introText" destination="oGN-sw-Ki5" id="kOn-sP-bRk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cag-Xi-wOy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
