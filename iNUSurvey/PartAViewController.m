@@ -7,6 +7,8 @@
 //
 
 #import "PartAViewController.h"
+#import "IntroViewController.h"
+#import "CourseSelectViewController.h"
 
 @interface PartAViewController ()
 
@@ -16,7 +18,7 @@
 
 @implementation PartAViewController
 
-@synthesize strClassNo, strCourseNo, strDescription, strStudentID, intEnrollmentID;
+@synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID;
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -41,7 +43,7 @@
     self.responses = @[@"Strongly Agree", @"Agree", @"Neutral", @"Disagree", @"Strongly Disagree"];
     
     //Diagnostic console output to show the variable data that is being passed to this view controller
-    printf("%s\n", [strStudentID UTF8String]);
+    printf("%s\n", [studentID UTF8String]);
     printf("%s\n", [strDescription UTF8String]);
     printf("%s\n", [strCourseNo UTF8String]);
     printf("%s\n", [strClassNo UTF8String]);

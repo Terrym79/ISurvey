@@ -117,11 +117,13 @@
     
 }
 
+
+//Passing values to Intro view controller
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     IntroViewController *ivc;
     ivc = [segue destinationViewController];
-    ivc.strStudentID = studentID.text;
+    ivc.studentID= studentID.text;
 }
 
 /*
