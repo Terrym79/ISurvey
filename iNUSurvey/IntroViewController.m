@@ -8,6 +8,9 @@
 
 #import "IntroViewController.h"
 
+//For passing values to the PartAViewController
+#import "CourseSelectViewController.h"
+
 @interface IntroViewController ()
 
 @end
@@ -76,9 +79,9 @@
 //Passing values to next View controller (Part A)
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    IntroViewController *introVc;
-    introVc  = [segue destinationViewController];
-    introVc.strStudentID = strStudentID;
+    CourseSelectViewController *csvc;
+    csvc  = [segue destinationViewController];
+    csvc.strStudentID = strStudentID;
 
 }
 
