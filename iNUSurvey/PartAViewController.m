@@ -19,6 +19,10 @@
 @implementation PartAViewController
 
 @synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID;
+//@synthesize questionID, courseNo, surveyPart, questionTitle, questionNo,question;
+@synthesize DB, databasePath, question, questionArray, surveyPart;
+
+
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -39,6 +43,70 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //Array for Questions
+    questionArray = [[NSMutableArray alloc] init];
+    
+    //Database path location building
+    NSArray *dirPaths;
+    NSString *docsDir;
+    
+    //Get the directory
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = [dirPaths objectAtIndex:0];
+    
+    //Appends the DB filename to the DB path
+    databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"iNUSurvey.sql"]];
+    
+    NSFileManager *filemgr = [NSFileManager defaultManager];
+    
+    //Database not found - Diagnostics
+    if([filemgr fileExistsAtPath:databasePath] == NO)
+    {
+        printf("CourseSelect Module Error: Database not ready!\n");  //Console output
+    }
+    
+    //Database is found - Diagnostics
+    else
+    {
+        printf("CourseSelect Module: Database exists and is ready\n");  //Console output
+    }
+    
+    
+    sqlite3_stmt *statement;
+    const char *dbpath = [databasePath UTF8String];
+    
+    //Database open is successful
+    if(sqlite3_open(dbpath, &DB) == SQLITE_OK)
+    {
+        surveyPart = @"A";
+        strCourseNo = @"CSC 480A";
+    
+    //Query to get all of the questions
+    NSString *querySQL = [NSString stringWithFormat:@"SELECT SURVEY_QUESTIONS.Question FROM SURVEY_QUESTIONS WHERE SURVEY_QUESTIONS.CourseNo = '%@' AND SURVEY_QUESTIONS.SurveyPart = '%@'", strCourseNo, surveyPart];
+ 
+    //Database open is successful
+    if(sqlite3_prepare_v2(DB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
+    {
+
+
+        while(sqlite3_step(statement) == SQLITE_ROW)
+        {
+
+        //Adds query result objects to the PickerView
+        [questionArray addObject:[NSString stringWithUTF8String:(char *) sqlite3_column_text(statement, 0)]];
+            
+        }
+    
+    }
+    else
+    {
+        //Diagnostic error messages if SQL query evaulation fails
+        NSLog(@"statement Error %d", sqlite3_prepare_v2(DB, [querySQL UTF8String], -1, &statement, NULL));
+        NSLog(@"Database returned error %d: %s", sqlite3_errcode(DB), sqlite3_errmsg(DB));
+    }
+    
+    
     // Do any additional setup after loading the view.
     self.responses = @[@"Strongly Agree", @"Agree", @"Neutral", @"Disagree", @"Strongly Disagree"];
     
@@ -48,7 +116,11 @@
     printf("%s\n", [strCourseNo UTF8String]);
     printf("%s\n", [strClassNo UTF8String]);
     printf("%d\n", intEnrollmentID);
+        
+        
+    }
 }
+
 
 
 - (void)didReceiveMemoryWarning {

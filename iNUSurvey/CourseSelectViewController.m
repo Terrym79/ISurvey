@@ -159,6 +159,9 @@
     pavc.strCourseNo = strCourseNo;
     pavc.strClassNo = strClassNo;
     pavc.intEnrollmentID = intEnrollmentID;
+    
+    printf("Entered username: %s\n", [pavc.studentID UTF8String]);
+    printf("Entered courseNumber: %s\n", [pavc.strCourseNo UTF8String]);
 }
 
 - (IBAction)nextButton:(id)sender {
