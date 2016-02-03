@@ -19,8 +19,8 @@
 @implementation PartAViewController
 
 @synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID;
-//@synthesize questionID, courseNo, surveyPart, questionTitle, questionNo,question;
-@synthesize DB, databasePath, question, questionArray, surveyPart;
+@synthesize DB, databasePath, question, questionArray, surveyPart, answerArray, QuestionLabel;
+@synthesize Button1, Button2, Button3, Button4, Button5, userAnswer, arrayCounter,questionIdArray;
 
 
 
@@ -43,6 +43,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.answerArray = [[NSMutableArray alloc] init];
+    self.questionIdArray = [[NSMutableArray alloc] init];
+    self.userAnswer = 0;
+    
+
     
     //Array for Questions
     questionArray = [[NSMutableArray alloc] init];
@@ -74,6 +80,7 @@
     
     
     sqlite3_stmt *statement;
+    sqlite3_stmt *statementTwo;
     const char *dbpath = [databasePath UTF8String];
     
     //Database open is successful
@@ -84,31 +91,46 @@
     
     //Query to get all of the questions
     NSString *querySQL = [NSString stringWithFormat:@"SELECT SURVEY_QUESTIONS.Question FROM SURVEY_QUESTIONS WHERE SURVEY_QUESTIONS.CourseNo = '%@' AND SURVEY_QUESTIONS.SurveyPart = '%@'", strCourseNo, surveyPart];
+        
+        //Query to get all of the questions
+    NSString *querySQLTwo = [NSString stringWithFormat:@"SELECT SURVEY_QUESTIONS.QuestionID FROM SURVEY_QUESTIONS WHERE SURVEY_QUESTIONS.CourseNo = '%@' AND SURVEY_QUESTIONS.SurveyPart = '%@'", strCourseNo, surveyPart];
  
     //Database open is successful
     if(sqlite3_prepare_v2(DB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
     {
-
-
         while(sqlite3_step(statement) == SQLITE_ROW)
         {
 
-        //Adds query result objects to the PickerView
+        //Adds query result objects to the array
         [questionArray addObject:[NSString stringWithUTF8String:(char *) sqlite3_column_text(statement, 0)]];
-            
+        }
+    }
+        
+    if(sqlite3_prepare_v2(DB, [querySQLTwo UTF8String], -1, &statementTwo, NULL) == SQLITE_OK)
+        {
+        while(sqlite3_step(statementTwo) == SQLITE_ROW)
+        {
+            NSLog(@"record found");
+            char *temps = (char *)sqlite3_column_text(statementTwo, 0);
+            //Adds query result objects to the array
+            [questionIdArray addObject:[NSString stringWithUTF8String:(char *) temps]];
+        //[questionIdArray addObject:[NSString stringWithUTF8String:(char *) sqlite3_column_text(statementTwo, 0)]];
+        }
+        
+    }
+        else
+        {
+            //Diagnostic error messages if SQL query evaulation fails
+            NSLog(@"statement Error %d", sqlite3_prepare_v2(DB, [querySQL UTF8String], -1, &statement, NULL));
+            NSLog(@"Database returned error %d: %s", sqlite3_errcode(DB), sqlite3_errmsg(DB));
         }
     
-    }
-    else
-    {
-        //Diagnostic error messages if SQL query evaulation fails
-        NSLog(@"statement Error %d", sqlite3_prepare_v2(DB, [querySQL UTF8String], -1, &statement, NULL));
-        NSLog(@"Database returned error %d: %s", sqlite3_errcode(DB), sqlite3_errmsg(DB));
-    }
     
-    
+        //Set the first question...
+        QuestionLabel.text = questionArray[userAnswer];
+        
     // Do any additional setup after loading the view.
-    self.responses = @[@"Strongly Agree", @"Agree", @"Neutral", @"Disagree", @"Strongly Disagree"];
+    //self.responses = @[@"Strongly Agree", @"Agree", @"Neutral", @"Disagree", @"Strongly Disagree"];
     
     //Diagnostic console output to show the variable data that is being passed to this view controller
     printf("%s\n", [studentID UTF8String]);
@@ -119,8 +141,42 @@
         
         
     }
+    
+    arrayCounter = [questionArray count];
+    
 }
 
+
+- (IBAction)ButtonAnswersAction:(id)sender {
+    
+    
+    UIButton *btn = (UIButton *)sender;
+    NSString *title = btn.titleLabel.text;
+    [self.answerArray addObject:title];
+    
+    userAnswer++;
+    if (userAnswer < arrayCounter) {
+        QuestionLabel.text = questionArray[userAnswer];
+        
+    
+    }
+    else if (userAnswer >= arrayCounter) {
+         QuestionLabel.text = @"Finished! Click Next To Continue To Next Section";
+        self.Button1.hidden = YES;
+        self.Button2.hidden = YES;
+        self.Button3.hidden = YES;
+        self.Button4.hidden = YES;
+        self.Button5.hidden = YES;
+        
+        
+        
+        
+    return;
+    }
+    
+    
+    
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -137,5 +193,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+
 
 @end

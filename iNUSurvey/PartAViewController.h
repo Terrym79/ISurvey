@@ -12,17 +12,36 @@
 @interface PartAViewController : UIViewController
 
 
+@property (weak, nonatomic) IBOutlet UILabel *QuestionLabel;
+@property (nonatomic) int userAnswer;
+@property (nonatomic) int arrayCounter;
 
-//for array
-//@property (nonatomic, retain) NSString *questionID;
-//@property (nonatomic, retain) NSString *courseNo;
-//@property (nonatomic, retain) NSString *surveyPart;
-//@property (nonatomic, retain) NSString *questionTitle;
-//@property (nonatomic, retain) NSString *questionNo;
+
+//BUTTONS
+@property (weak, nonatomic) IBOutlet UIButton *Button1;
+
+@property (weak, nonatomic) IBOutlet UIButton *Button2;
+
+@property (weak, nonatomic) IBOutlet UIButton *Button3;
+
+@property (weak, nonatomic) IBOutlet UIButton *Button4;
+
+@property (weak, nonatomic) IBOutlet UIButton *Button5;
+
+
+
+- (IBAction)ButtonAnswersAction:(id)sender;
+
+
+
+
+
 @property (nonatomic, retain) NSString *question;
 @property (nonatomic, retain) NSString *surveyPart;
 
 @property (nonatomic, retain)NSMutableArray *questionArray;
+@property (nonatomic, retain)NSMutableArray *questionIdArray;
+@property (nonatomic, retain)NSMutableArray *answerArray;
 
 //data values that are passed to this view controller
 @property (weak, nonatomic) NSString *studentID;
@@ -33,5 +52,7 @@
 
 @property(strong, nonatomic) NSString *databasePath;
 @property(nonatomic) sqlite3 *DB;
+
+
 
 @end
