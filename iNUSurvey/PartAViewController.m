@@ -105,7 +105,6 @@
             char *temps = (char *)sqlite3_column_text(statementTwo, 0);
             //Adds query result objects to the array
             [questionIdArray addObject:[NSString stringWithUTF8String:(char *) temps]];
-        //[questionIdArray addObject:[NSString stringWithUTF8String:(char *) sqlite3_column_text(statementTwo, 0)]];
         }
         
     }
@@ -116,12 +115,8 @@
             NSLog(@"Database returned error %d: %s", sqlite3_errcode(DB), sqlite3_errmsg(DB));
         }
     
-    
-        //Set the first question...
+            //Set the first question...
         QuestionLabel.text = questionArray[userAnswer];
-        
-    // Do any additional setup after loading the view.
-    //self.responses = @[@"Strongly Agree", @"Agree", @"Neutral", @"Disagree", @"Strongly Disagree"];
     
     //Diagnostic console output to show the variable data that is being passed to this view controller
     printf("%s\n", [studentID UTF8String]);
@@ -130,11 +125,9 @@
     printf("%s\n", [strClassNo UTF8String]);
     printf("%d\n", intEnrollmentID);
         
-        
     }
     
     arrayCounter = [questionArray count];
-    
 }
 
 
@@ -159,14 +152,9 @@
         self.Button4.hidden = YES;
         self.Button5.hidden = YES;
         
-        
-        
-        
     return;
     }
-
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -184,13 +172,13 @@
     pavc2.strCourseNo = strCourseNo;
     pavc2.strClassNo = strClassNo;
     pavc2.intEnrollmentID = intEnrollmentID;
+    pavc2.questionArray = questionArray;
+    pavc2.answerArray = answerArray;
+    pavc2.questionIdArray = questionIdArray;
     
     printf("Entered username: %s\n", [pavc2.studentID UTF8String]);
     printf("Entered courseNumber: %s\n", [pavc2.strCourseNo UTF8String]);
 }
-
-
-
 
 /*
 #pragma mark - Navigation
@@ -201,9 +189,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-
-
 
 
 @end

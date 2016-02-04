@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PartBViewController.h"
 #import "PartCViewController.h"
+#import "PartAViewController.h"
 
 
 @interface PartBViewController ()
@@ -20,8 +21,9 @@
 @implementation PartBViewController
 
 @synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID;
-@synthesize DB, databasePath, question, questionArray, surveyPart, answerArray, QuestionLabel;
-@synthesize Button1, Button2, Button3, Button4, Button5, userAnswer, arrayCounter,questionIdArray;
+@synthesize DB, databasePath, question, questionArrayTwo, surveyPart, answerArrayTwo, QuestionLabel;
+@synthesize Button1, Button2, Button3, Button4, Button5, userAnswerTwo, arrayCounter,questionIdArrayTwo;
+@synthesize questionArray, questionIdArray, answerArray;
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -33,14 +35,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.answerArray = [[NSMutableArray alloc] init];
-    self.questionIdArray = [[NSMutableArray alloc] init];
-    self.userAnswer = 0;
+    self.answerArrayTwo = [[NSMutableArray alloc] init];
+    self.questionIdArrayTwo = [[NSMutableArray alloc] init];
+    self.questionArrayTwo = [[NSMutableArray alloc] init];
+    self.userAnswerTwo = 0;
     
-    
-    
-    //Array for Questions
-    questionArray = [[NSMutableArray alloc] init];
     
     //Database path location building
     NSArray *dirPaths;
@@ -91,7 +90,7 @@
             {
                 
                 //Adds query result objects to the array
-                [questionArray addObject:[NSString stringWithUTF8String:(char *) sqlite3_column_text(statement, 0)]];
+                [questionArrayTwo addObject:[NSString stringWithUTF8String:(char *) sqlite3_column_text(statement, 0)]];
             }
         }
         
@@ -102,8 +101,7 @@
                 NSLog(@"record found");
                 char *temps = (char *)sqlite3_column_text(statementTwo, 0);
                 //Adds query result objects to the array
-                [questionIdArray addObject:[NSString stringWithUTF8String:(char *) temps]];
-                //[questionIdArray addObject:[NSString stringWithUTF8String:(char *) sqlite3_column_text(statementTwo, 0)]];
+                [questionIdArrayTwo addObject:[NSString stringWithUTF8String:(char *) temps]];
             }
             
         }
@@ -116,10 +114,7 @@
         
         
         //Set the first question...
-        QuestionLabel.text = questionArray[userAnswer];
-        
-        // Do any additional setup after loading the view.
-        //self.responses = @[@"Strongly Agree", @"Agree", @"Neutral", @"Disagree", @"Strongly Disagree"];
+        QuestionLabel.text = questionArrayTwo[userAnswerTwo];
         
         //Diagnostic console output to show the variable data that is being passed to this view controller
         printf("%s\n", [studentID UTF8String]);
@@ -142,27 +137,23 @@
     
     UIButton *btn = (UIButton *)sender;
     NSString *title = btn.titleLabel.text;
-    [self.answerArray addObject:title];
+    [self.answerArrayTwo addObject:title];
     
-    userAnswer++;
-    if (userAnswer < arrayCounter) {
-        QuestionLabel.text = questionArray[userAnswer];
-        
-        
+    userAnswerTwo++;
+    if (userAnswerTwo < arrayCounter) {
+        QuestionLabel.text = questionArrayTwo[userAnswerTwo];
     }
-    else if (userAnswer >= arrayCounter) {
+    else if (userAnswerTwo >= arrayCounter) {
         QuestionLabel.text = @"Finished! Click Next To Continue To Next Section";
         self.Button1.hidden = YES;
         self.Button2.hidden = YES;
         self.Button3.hidden = YES;
         self.Button4.hidden = YES;
         self.Button5.hidden = YES;
-
         
         return;
     }
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -180,13 +171,17 @@
     pavc3.strCourseNo = strCourseNo;
     pavc3.strClassNo = strClassNo;
     pavc3.intEnrollmentID = intEnrollmentID;
+    pavc3.questionArray = questionArray;
+    pavc3.questionArrayTwo = questionArrayTwo;
+    pavc3.questionIdArray = questionIdArray;
+    pavc3.questionIdArrayTwo = questionIdArrayTwo;
+    pavc3.answerArray = answerArray;
+    pavc3.answerArrayTwo = answerArrayTwo;
+    
     
     printf("Entered username: %s\n", [pavc3.studentID UTF8String]);
     printf("Entered courseNumber: %s\n", [pavc3.strCourseNo UTF8String]);
 }
-
-
-
 
 /*
  #pragma mark - Navigation

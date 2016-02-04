@@ -7,12 +7,17 @@
 //
 
 #import "PartCViewController.h"
+#import "PartDViewController.h"
 
 @interface PartCViewController ()
 
 @end
 
 @implementation PartCViewController
+
+@synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID;
+@synthesize DB, databasePath;
+@synthesize questionArray, questionArrayTwo, questionIdArray, questionIdArrayTwo, answerArray,answerArrayTwo,Comments;
 
 // part of placeholder
 //@synthesize textView;
@@ -26,6 +31,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // self.textView.placeholder = @"place"; (place holder)
+   
+}
+
+- (IBAction)BackToCOurseButtonAction:(id)sender {
+    NSString *commentsString = Comments.text;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,18 +48,8 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }
-/* Trying to do a placeholder
-- (void)dealloc{
-    
-    [self.textView release];
-    //[super dealloc];
 
-}
 
-- (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self.textView resignFirstResponder];
-}
-*/
 /*
 #pragma mark - Navigation
 
@@ -66,11 +67,45 @@
 
     UIAlertAction *backtAction = [UIAlertAction actionWithTitle:@"Back" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
     
-    UIAlertAction *submitAction = [UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
+    UIAlertAction *submitAction = [UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        
+        
+        NSString *commentsText = Comments.text;
+    
+        //Do some thing here
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        PartDViewController *viewController = (PartDViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PartDViewController"];
+        [self presentViewController:viewController animated:YES completion:nil];
+    
+    
+    }];
+    
+
     
     [alert addAction:backtAction];
     [alert addAction:submitAction];
     
+   
+    
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+
+//Passing values to next View controller (Part D)
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    PartDViewController *pavc4;
+    pavc4  = [segue destinationViewController];
+    pavc4.studentID = studentID;
+    pavc4.strDescription = strDescription;
+    pavc4.strCourseNo = strCourseNo;
+    pavc4.strClassNo = strClassNo;
+    pavc4.intEnrollmentID = intEnrollmentID;
+    
+    printf("Entered username: %s\n", [pavc4.studentID UTF8String]);
+    printf("Entered courseNumber: %s\n", [pavc4.strCourseNo UTF8String]);
+}
+
+
+
 @end
