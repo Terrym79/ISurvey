@@ -157,9 +157,7 @@
         self.Button3.hidden = YES;
         self.Button4.hidden = YES;
         self.Button5.hidden = YES;
-        
-        
-        
+
         
         return;
     }

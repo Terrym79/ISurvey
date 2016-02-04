@@ -8,13 +8,11 @@
 
 #import "PartCViewController.h"
 
-@interface PartCViewController () <UIAlertViewDelegate>
+@interface PartCViewController ()
 
 @end
 
 @implementation PartCViewController
-
-@synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID;
 
 // part of placeholder
 //@synthesize textView;
@@ -74,12 +72,5 @@
     [alert addAction:submitAction];
     
     [self presentViewController:alert animated:YES completion:nil];
-
 }
-
-
-
-
-
-
 @end

@@ -6,6 +6,8 @@
 //  Copyright © 2016 iSuperb. All rights reserved.
 //
 
+
+
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
 
@@ -21,7 +23,7 @@
 @property(strong, nonatomic) NSString *databasePath;
 @property(nonatomic) sqlite3 *DB;
 
- 
+
 
 // part of place holder
 //@property (weak, nonatomic) IBOutlet UITextField *textView;
