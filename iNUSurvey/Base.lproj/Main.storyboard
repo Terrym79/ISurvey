@@ -575,7 +575,7 @@
                                     <navigationItem title="CSC 480A" id="tJ2-Fx-EgY">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="raz-Yw-5be">
                                             <connections>
-                                                <segue destination="v5S-bA-Rsr" kind="show" id="eA1-rN-EEz"/>
+                                                <segue destination="v5S-bA-Rsr" kind="show" id="LBg-Sz-Uog"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Submit" id="r28-YV-e5S">
@@ -620,8 +620,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="bkE-43-asy"/>
                     <connections>
-                        <outlet property="Back" destination="raz-Yw-5be" id="625-LL-xhH"/>
-                        <outlet property="Submit" destination="r28-YV-e5S" id="NPa-XC-rpM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S8Q-K8-cv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -668,7 +666,7 @@
                                     <navigationItem title="CSC 480A" id="wBO-Hm-nUv">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="Eh5-mW-Kzh">
                                             <connections>
-                                                <segue destination="sN0-Lu-vNa" kind="show" id="NfU-mq-Mra"/>
+                                                <segue destination="sN0-Lu-vNa" kind="show" id="aD7-wR-c04"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="qBK-rJ-ooK">
@@ -845,13 +843,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="orT-hy-90N">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <color key="barTintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem title="CSC 480A" id="sJQ-fD-l6i"/>
-                                </items>
-                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="NULogo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LhX-b6-M9J">
                                 <rect key="frame" x="20" y="25" width="35" height="35"/>
                                 <constraints>
@@ -900,6 +891,13 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="orT-hy-90N">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="CSC 480A" id="sJQ-fD-l6i"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.0078431372550000003" green="0.14117647059999999" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -926,7 +924,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klO-Dw-a2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3630" y="187"/>
+            <point key="canvasLocation" x="3644" y="181"/>
         </scene>
     </scenes>
     <resources>
@@ -934,9 +932,9 @@
         <image name="NULogo.jpg" width="160" height="156"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="LBg-Sz-Uog"/>
+        <segue reference="aD7-wR-c04"/>
         <segue reference="8TZ-HN-pZp"/>
         <segue reference="XzJ-K5-UKI"/>
-        <segue reference="eA1-rN-EEz"/>
-        <segue reference="NfU-mq-Mra"/>
     </inferredMetricsTieBreakers>
 </document>
