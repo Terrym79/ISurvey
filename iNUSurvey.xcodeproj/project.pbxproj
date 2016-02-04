@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A3CFBF81C62E056001D7DC4 /* PartBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3CFBF71C62E056001D7DC4 /* PartBViewController.m */; };
 		4AB96E821C3387E3000DDBF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB96E811C3387E3000DDBF8 /* main.m */; };
 		4AB96E851C3387E3000DDBF8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB96E841C3387E3000DDBF8 /* AppDelegate.m */; };
 		4AB96E881C3387E3000DDBF8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB96E871C3387E3000DDBF8 /* ViewController.m */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A3CFBF61C62E025001D7DC4 /* PartBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartBViewController.h; sourceTree = "<group>"; };
+		4A3CFBF71C62E056001D7DC4 /* PartBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartBViewController.m; sourceTree = "<group>"; };
 		4AB96E7D1C3387E3000DDBF8 /* iNUSurvey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iNUSurvey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB96E811C3387E3000DDBF8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4AB96E831C3387E3000DDBF8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				AB43833D1C3B4C8C00AD15AF /* CourseSelectViewController.m */,
 				AB1B19AD1C4745AC00482972 /* PartAViewController.h */,
 				AB1B19AE1C4745AC00482972 /* PartAViewController.m */,
+				4A3CFBF61C62E025001D7DC4 /* PartBViewController.h */,
+				4A3CFBF71C62E056001D7DC4 /* PartBViewController.m */,
 				AB86E7911C4AF1BF0040E99B /* PartCViewController.h */,
 				AB86E7921C4AF1BF0040E99B /* PartCViewController.m */,
 				4AB96E831C3387E3000DDBF8 /* AppDelegate.h */,
@@ -315,6 +320,7 @@
 				AB43833E1C3B4C8C00AD15AF /* CourseSelectViewController.m in Sources */,
 				4AB96E821C3387E3000DDBF8 /* main.m in Sources */,
 				AB43833B1C3B49BF00AD15AF /* IntroViewController.m in Sources */,
+				4A3CFBF81C62E056001D7DC4 /* PartBViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

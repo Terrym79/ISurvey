@@ -1,29 +1,27 @@
 //
-//  PartAViewController.m
+//  PartBViewController.m
 //  iNUSurvey
 //
-//  Created by Meiza Fleitas on 1/13/16.
+//  Created by Terry Minton on 2/3/16.
 //  Copyright © 2016 iSuperb. All rights reserved.
 //
 
-#import "PartAViewController.h"
-#import "IntroViewController.h"
-#import "CourseSelectViewController.h"
+#import <Foundation/Foundation.h>
 #import "PartBViewController.h"
+#import "PartCViewController.h"
 
-@interface PartAViewController ()
+
+@interface PartBViewController ()
 
 @property NSArray *responses;
 
 @end
 
-@implementation PartAViewController
+@implementation PartBViewController
 
 @synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID;
 @synthesize DB, databasePath, question, questionArray, surveyPart, answerArray, QuestionLabel;
 @synthesize Button1, Button2, Button3, Button4, Button5, userAnswer, arrayCounter,questionIdArray;
-
-
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -39,7 +37,7 @@
     self.questionIdArray = [[NSMutableArray alloc] init];
     self.userAnswer = 0;
     
-
+    
     
     //Array for Questions
     questionArray = [[NSMutableArray alloc] init];
@@ -77,58 +75,58 @@
     //Database open is successful
     if(sqlite3_open(dbpath, &DB) == SQLITE_OK)
     {
-        surveyPart = @"A";
+        surveyPart = @"B";
         strCourseNo = @"CSC 480A";
-    
-    //Query to get all of the questions
-    NSString *querySQL = [NSString stringWithFormat:@"SELECT SURVEY_QUESTIONS.Question FROM SURVEY_QUESTIONS WHERE SURVEY_QUESTIONS.CourseNo = '%@' AND SURVEY_QUESTIONS.SurveyPart = '%@'", strCourseNo, surveyPart];
         
         //Query to get all of the questions
-    NSString *querySQLTwo = [NSString stringWithFormat:@"SELECT SURVEY_QUESTIONS.QuestionID FROM SURVEY_QUESTIONS WHERE SURVEY_QUESTIONS.CourseNo = '%@' AND SURVEY_QUESTIONS.SurveyPart = '%@'", strCourseNo, surveyPart];
- 
-    //Database open is successful
-    if(sqlite3_prepare_v2(DB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
-    {
-        while(sqlite3_step(statement) == SQLITE_ROW)
-        {
-
-        //Adds query result objects to the array
-        [questionArray addObject:[NSString stringWithUTF8String:(char *) sqlite3_column_text(statement, 0)]];
-        }
-    }
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT SURVEY_QUESTIONS.Question FROM SURVEY_QUESTIONS WHERE SURVEY_QUESTIONS.CourseNo = '%@' AND SURVEY_QUESTIONS.SurveyPart = '%@'", strCourseNo, surveyPart];
         
-    if(sqlite3_prepare_v2(DB, [querySQLTwo UTF8String], -1, &statementTwo, NULL) == SQLITE_OK)
+        //Query to get all of the questions
+        NSString *querySQLTwo = [NSString stringWithFormat:@"SELECT SURVEY_QUESTIONS.QuestionID FROM SURVEY_QUESTIONS WHERE SURVEY_QUESTIONS.CourseNo = '%@' AND SURVEY_QUESTIONS.SurveyPart = '%@'", strCourseNo, surveyPart];
+        
+        //Database open is successful
+        if(sqlite3_prepare_v2(DB, [querySQL UTF8String], -1, &statement, NULL) == SQLITE_OK)
         {
-        while(sqlite3_step(statementTwo) == SQLITE_ROW)
-        {
-            NSLog(@"record found");
-            char *temps = (char *)sqlite3_column_text(statementTwo, 0);
-            //Adds query result objects to the array
-            [questionIdArray addObject:[NSString stringWithUTF8String:(char *) temps]];
-        //[questionIdArray addObject:[NSString stringWithUTF8String:(char *) sqlite3_column_text(statementTwo, 0)]];
+            while(sqlite3_step(statement) == SQLITE_ROW)
+            {
+                
+                //Adds query result objects to the array
+                [questionArray addObject:[NSString stringWithUTF8String:(char *) sqlite3_column_text(statement, 0)]];
+            }
         }
         
-    }
+        if(sqlite3_prepare_v2(DB, [querySQLTwo UTF8String], -1, &statementTwo, NULL) == SQLITE_OK)
+        {
+            while(sqlite3_step(statementTwo) == SQLITE_ROW)
+            {
+                NSLog(@"record found");
+                char *temps = (char *)sqlite3_column_text(statementTwo, 0);
+                //Adds query result objects to the array
+                [questionIdArray addObject:[NSString stringWithUTF8String:(char *) temps]];
+                //[questionIdArray addObject:[NSString stringWithUTF8String:(char *) sqlite3_column_text(statementTwo, 0)]];
+            }
+            
+        }
         else
         {
             //Diagnostic error messages if SQL query evaulation fails
             NSLog(@"statement Error %d", sqlite3_prepare_v2(DB, [querySQL UTF8String], -1, &statement, NULL));
             NSLog(@"Database returned error %d: %s", sqlite3_errcode(DB), sqlite3_errmsg(DB));
         }
-    
-    
+        
+        
         //Set the first question...
         QuestionLabel.text = questionArray[userAnswer];
         
-    // Do any additional setup after loading the view.
-    //self.responses = @[@"Strongly Agree", @"Agree", @"Neutral", @"Disagree", @"Strongly Disagree"];
-    
-    //Diagnostic console output to show the variable data that is being passed to this view controller
-    printf("%s\n", [studentID UTF8String]);
-    printf("%s\n", [strDescription UTF8String]);
-    printf("%s\n", [strCourseNo UTF8String]);
-    printf("%s\n", [strClassNo UTF8String]);
-    printf("%d\n", intEnrollmentID);
+        // Do any additional setup after loading the view.
+        //self.responses = @[@"Strongly Agree", @"Agree", @"Neutral", @"Disagree", @"Strongly Disagree"];
+        
+        //Diagnostic console output to show the variable data that is being passed to this view controller
+        printf("%s\n", [studentID UTF8String]);
+        printf("%s\n", [strDescription UTF8String]);
+        printf("%s\n", [strCourseNo UTF8String]);
+        printf("%s\n", [strClassNo UTF8String]);
+        printf("%d\n", intEnrollmentID);
         
         
     }
@@ -138,8 +136,9 @@
 }
 
 
+
+
 - (IBAction)ButtonAnswersAction:(id)sender {
-    
     
     UIButton *btn = (UIButton *)sender;
     NSString *title = btn.titleLabel.text;
@@ -149,10 +148,10 @@
     if (userAnswer < arrayCounter) {
         QuestionLabel.text = questionArray[userAnswer];
         
-    
+        
     }
     else if (userAnswer >= arrayCounter) {
-         QuestionLabel.text = @"Finished! Click Next To Continue To Next Section";
+        QuestionLabel.text = @"Finished! Click Next To Continue To Next Section";
         self.Button1.hidden = YES;
         self.Button2.hidden = YES;
         self.Button3.hidden = YES;
@@ -162,9 +161,8 @@
         
         
         
-    return;
+        return;
     }
-
 }
 
 
@@ -174,36 +172,33 @@
 }
 
 
-//Passing values to next View controller (Part B)
+//Passing values to next View controller (Part C)
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    PartBViewController *pavc2;
-    pavc2  = [segue destinationViewController];
-    pavc2.studentID = studentID;
-    pavc2.strDescription = strDescription;
-    pavc2.strCourseNo = strCourseNo;
-    pavc2.strClassNo = strClassNo;
-    pavc2.intEnrollmentID = intEnrollmentID;
+    PartCViewController *pavc3;
+    pavc3  = [segue destinationViewController];
+    pavc3.studentID = studentID;
+    pavc3.strDescription = strDescription;
+    pavc3.strCourseNo = strCourseNo;
+    pavc3.strClassNo = strClassNo;
+    pavc3.intEnrollmentID = intEnrollmentID;
     
-    printf("Entered username: %s\n", [pavc2.studentID UTF8String]);
-    printf("Entered courseNumber: %s\n", [pavc2.strCourseNo UTF8String]);
+    printf("Entered username: %s\n", [pavc3.studentID UTF8String]);
+    printf("Entered courseNumber: %s\n", [pavc3.strCourseNo UTF8String]);
 }
 
 
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
-
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 
 @end
