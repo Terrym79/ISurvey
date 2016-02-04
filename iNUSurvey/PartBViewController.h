@@ -1,35 +1,22 @@
 //
-//  PartAViewController.h
+//  PartBViewController.h
 //  iNUSurvey
 //
-//  Created by Meiza Fleitas on 1/13/16.
+//  Created by Terry Minton on 2/3/16.
 //  Copyright © 2016 iSuperb. All rights reserved.
 //
+
+
+#define PartBViewController_h
 
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
 
-@interface PartAViewController : UIViewController
+@interface PartBViewController : UIViewController
 
 
-@property (weak, nonatomic) IBOutlet UILabel *QuestionLabel;
 @property (nonatomic) int userAnswer;
 @property (nonatomic) int arrayCounter;
-
-
-//BUTTONS
-@property (weak, nonatomic) IBOutlet UIButton *Button1;
-
-@property (weak, nonatomic) IBOutlet UIButton *Button2;
-
-@property (weak, nonatomic) IBOutlet UIButton *Button3;
-
-@property (weak, nonatomic) IBOutlet UIButton *Button4;
-
-@property (weak, nonatomic) IBOutlet UIButton *Button5;
-
-- (IBAction)ButtonAnswersAction:(id)sender;
-
 
 @property (nonatomic, retain) NSString *question;
 @property (nonatomic, retain) NSString *surveyPart;
@@ -49,5 +36,16 @@
 @property(nonatomic) sqlite3 *DB;
 
 
+@property (weak, nonatomic) IBOutlet UILabel *QuestionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *Button1;
+@property (weak, nonatomic) IBOutlet UIButton *Button2;
+@property (weak, nonatomic) IBOutlet UIButton *Button3;
+@property (weak, nonatomic) IBOutlet UIButton *Button4;
+@property (weak, nonatomic) IBOutlet UIButton *Button5;
+
+- (IBAction)ButtonAnswersAction:(id)sender;
+
+
 
 @end
+
