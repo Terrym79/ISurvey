@@ -16,6 +16,6 @@
     @property (weak, nonatomic) IBOutlet UILabel *introText;
 
     //Data passing related properties
-    @property (weak, nonatomic) NSString *strStudentID;
+    @property (strong, nonatomic) NSString *studentID;
 
 @end

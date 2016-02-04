@@ -7,6 +7,7 @@
 //
 
 #import "CourseSelectViewController.h"
+#import "IntroViewController.h"
 
 //For passing values to the PartAViewController
 #import "PartAViewController.h"
@@ -16,7 +17,7 @@
 
 @implementation CourseSelectViewController
 
-@synthesize strStudentID, coursesToSelect, courseSelection, intEnrollmentID, strClassNo, databasePath, DB, courseSelectPicker, strDescription, strCourseNo, strEnrollmentID;
+@synthesize studentID, coursesToSelect, courseSelection, intEnrollmentID, strClassNo, databasePath, DB, courseSelectPicker, strDescription, strCourseNo, strEnrollmentID;
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -61,7 +62,7 @@
     if(sqlite3_open(dbpath, &DB) == SQLITE_OK)
     {
         //Query to determine eligible courses that have not been evaluated
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT COURSES.CourseNo, COURSES.Description, ENROLLMENT.EnrollmentID, ENROLLMENT.ClassNo FROM COURSES INNER JOIN CLASSES ON COURSES.CourseNo = CLASSES.CourseNo INNER JOIN ENROLLMENT ON ENROLLMENT.ClassNo = CLASSES.ClassNo INNER JOIN STUDENT ON STUDENT.StudentID = ENROLLMENT.StudentID WHERE STUDENT.StudentID = '%@' AND ENROLLMENT.SurveyCompleted = '%d'", strStudentID, 0];
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT COURSES.CourseNo, COURSES.Description, ENROLLMENT.EnrollmentID, ENROLLMENT.ClassNo FROM COURSES INNER JOIN CLASSES ON COURSES.CourseNo = CLASSES.CourseNo INNER JOIN ENROLLMENT ON ENROLLMENT.ClassNo = CLASSES.ClassNo INNER JOIN STUDENT ON STUDENT.StudentID = ENROLLMENT.StudentID WHERE STUDENT.StudentID = '%@' AND ENROLLMENT.SurveyCompleted = '%d'", studentID, 0];
         
         const char *query_statement = [querySQL UTF8String];
         
@@ -116,7 +117,7 @@
     if(sqlite3_open(dbpath, &DB) == SQLITE_OK)
     {
         //Query to determine eligible courses that have not been evaluated
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT COURSES.CourseNo, COURSES.Description, ENROLLMENT.EnrollmentID, ENROLLMENT.ClassNo FROM COURSES INNER JOIN CLASSES ON COURSES.CourseNo = CLASSES.CourseNo INNER JOIN ENROLLMENT ON ENROLLMENT.ClassNo = CLASSES.ClassNo INNER JOIN STUDENT ON STUDENT.StudentID = ENROLLMENT.StudentID WHERE STUDENT.StudentID = '%@' AND ENROLLMENT.SurveyCompleted = '%d' AND CLASSES.CourseNo = '%@'", strStudentID, 0, courseSelection];
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT COURSES.CourseNo, COURSES.Description, ENROLLMENT.EnrollmentID, ENROLLMENT.ClassNo FROM COURSES INNER JOIN CLASSES ON COURSES.CourseNo = CLASSES.CourseNo INNER JOIN ENROLLMENT ON ENROLLMENT.ClassNo = CLASSES.ClassNo INNER JOIN STUDENT ON STUDENT.StudentID = ENROLLMENT.StudentID WHERE STUDENT.StudentID = '%@' AND ENROLLMENT.SurveyCompleted = '%d' AND CLASSES.CourseNo = '%@'", studentID, 0, courseSelection];
         
         const char *query_statement = [querySQL UTF8String];
         
@@ -153,11 +154,14 @@
 {
     PartAViewController *pavc;
     pavc  = [segue destinationViewController];
-    pavc.strStudentID = strStudentID;
+    pavc.studentID = studentID;
     pavc.strDescription = strDescription;
     pavc.strCourseNo = strCourseNo;
     pavc.strClassNo = strClassNo;
     pavc.intEnrollmentID = intEnrollmentID;
+    
+    printf("Entered username: %s\n", [pavc.studentID UTF8String]);
+    printf("Entered courseNumber: %s\n", [pavc.strCourseNo UTF8String]);
 }
 
 - (IBAction)nextButton:(id)sender {

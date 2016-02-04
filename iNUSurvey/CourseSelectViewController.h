@@ -21,7 +21,7 @@
 @property (weak, nonatomic) NSString *courseSelection;
 
 //Data passing related properties
-@property (weak, nonatomic) NSString *strStudentID;
+@property (strong, nonatomic) NSString *studentID;
 @property (nonatomic) int intEnrollmentID;
 @property (strong, nonatomic) NSString *strClassNo;
 @property (strong, nonatomic) NSString *strCourseNo;

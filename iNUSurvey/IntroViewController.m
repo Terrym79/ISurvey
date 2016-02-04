@@ -7,6 +7,8 @@
 //
 
 #import "IntroViewController.h"
+#import "CourseSelectViewController.h"
+
 
 //For passing values to the PartAViewController
 #import "CourseSelectViewController.h"
@@ -16,7 +18,7 @@
 @end
 
 @implementation IntroViewController
-@synthesize introText, databasePath, DB, strStudentID;
+@synthesize introText, databasePath, DB, studentID;
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -38,9 +40,7 @@
     
     sqlite3_stmt *statement;
     const char *dbpath = [databasePath UTF8String];
-    
-    
-    
+
     //Database open is successful
     if(sqlite3_open(dbpath, & DB) == SQLITE_OK)
     {
@@ -62,6 +62,23 @@
         
     }
     
+    //diagnostic output to console
+    printf("Entered username: %s\n", [studentID UTF8String]);
+
+    
+}
+
+
+//Passing values to next View controller (Part A)
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
+{
+    
+    CourseSelectViewController *csvc = [segue destinationViewController];
+    csvc.studentID = studentID;
+    
+    //diagnostic output to console
+    printf("Entered username: %s\n", [csvc.studentID UTF8String]);
+    printf("Entered username: %s\n", [studentID UTF8String]);
     
 }
 
