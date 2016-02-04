@@ -626,7 +626,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S8Q-K8-cv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2980" y="181"/>
+            <point key="canvasLocation" x="3009" y="181"/>
         </scene>
         <!--PartB View Controller-->
         <scene sceneID="Qys-eI-Y3p">
@@ -668,12 +668,12 @@
                                     <navigationItem title="CSC 480A" id="wBO-Hm-nUv">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="Eh5-mW-Kzh">
                                             <connections>
-                                                <segue destination="sN0-Lu-vNa" kind="show" id="n7X-BM-9Nd"/>
+                                                <segue destination="sN0-Lu-vNa" kind="show" id="NfU-mq-Mra"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="qBK-rJ-ooK">
                                             <connections>
-                                                <segue destination="1zn-ln-zwq" kind="show" id="VIU-VF-rre"/>
+                                                <segue destination="1zn-ln-zwq" kind="show" id="JrQ-nz-ewU"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -879,9 +879,6 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="BvS-YR-86d" kind="show" id="1dE-w2-qSy"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyz-47-jfh">
                                 <rect key="frame" x="212" y="370" width="176" height="30"/>
@@ -937,9 +934,9 @@
         <image name="NULogo.jpg" width="160" height="156"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BVU-bf-skt"/>
-        <segue reference="1dE-w2-qSy"/>
+        <segue reference="8TZ-HN-pZp"/>
+        <segue reference="XzJ-K5-UKI"/>
         <segue reference="eA1-rN-EEz"/>
-        <segue reference="n7X-BM-9Nd"/>
+        <segue reference="NfU-mq-Mra"/>
     </inferredMetricsTieBreakers>
 </document>
