@@ -19,6 +19,15 @@
 @property (weak, nonatomic) NSString *strCourseNo;
 @property (weak, nonatomic) NSString *strClassNo;
 @property (nonatomic) int intEnrollmentID;
+@property (nonatomic, retain)NSMutableArray *questionArray;
+@property (nonatomic, retain)NSMutableArray *questionIdArray;
+@property (nonatomic, retain)NSMutableArray *answerArray;
+@property (nonatomic, retain)NSMutableArray *questionArrayTwo;
+@property (nonatomic, retain)NSMutableArray *questionIdArrayTwo;
+@property (nonatomic, retain)NSMutableArray *answerArrayTwo;
+
+
+@property (weak, nonatomic) IBOutlet UITextView *Comments;
 
 @property(strong, nonatomic) NSString *databasePath;
 @property(nonatomic) sqlite3 *DB;
