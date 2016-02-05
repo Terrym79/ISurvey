@@ -126,7 +126,7 @@
         
     }
     
-    arrayCounter = [questionArray count];
+    arrayCounter = [questionArrayTwo count];
     
 }
 

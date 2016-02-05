@@ -62,6 +62,25 @@
 
 - (IBAction)showAlert:(id)sender {
     
+    
+
+    //Database path location building
+    NSArray *dirPaths;
+    NSString *docsDir;
+    
+    //Get the directory
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = [dirPaths objectAtIndex:0];
+    
+    //Appends the DB filename to the DB path
+    databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"iNUSurvey.sql"]];
+    
+    NSFileManager *filemgr = [NSFileManager defaultManager];
+    
+    sqlite3_stmt *statement;
+    const char *dbpath = [databasePath UTF8String];
+    
+    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"CONFIRMATION" message:@"Are you ready to submit your responses?" preferredStyle:UIAlertControllerStyleAlert];
     
 
@@ -69,10 +88,63 @@
     
     UIAlertAction *submitAction = [UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         
-        
+        //User Text Comments
         NSString *commentsText = Comments.text;
+        
+        //Database open is successful
+        //FOR PART A
+        for(int i = 0; i < [questionIdArray count]; i++)
+        {
+            
+            NSString *string = [questionIdArray objectAtIndex:(i)];
+            NSInteger value = [string intValue];
+            NSString *answerString = [answerArray objectAtIndex: (i)];
+            //long enrollmentID = intEnrollmentID;
+
+            
+            if(sqlite3_open(dbpath, &DB) == SQLITE_OK)
+            {
+                NSString *querySQLThree = [NSString stringWithFormat: @"INSERT INTO RESPONSES (EnrollmentID, QuestionID, QuestionResponse, Comment) VALUES ('%d', '%ld', '%@', '%@')", intEnrollmentID, (long)value, answerString, commentsText];
+                
+                 const char *query_statementOne = [querySQLThree UTF8String];
+                
+                if(sqlite3_prepare_v2(DB, query_statementOne, -1, &statement, NULL) == SQLITE_OK)
+                {
+            
+                sqlite3_exec(DB, [querySQLThree UTF8String], NULL, NULL, NULL);
+                
+                }
+            }
+            sqlite3_close(DB);
+        }
+        
+        
+        //FOR PART B
+        for(int i = 0; i < [questionIdArrayTwo count]; i++)
+        {
+            
+            NSString *string = [questionIdArrayTwo objectAtIndex:(i)];
+            NSInteger value = [string intValue];
+            NSString *answerString = [answerArrayTwo objectAtIndex: (i)];
+            //long enrollmentID = intEnrollmentID;
+            
+            if(sqlite3_open(dbpath, &DB) == SQLITE_OK)
+            {
+                NSString *querySQLFour = [NSString stringWithFormat: @"INSERT INTO RESPONSES (EnrollmentID, QuestionID, QuestionResponse, Comment) VALUES ('%d', '%ld', '%@', '%@')", intEnrollmentID, (long)value, answerString, commentsText];
+                
+                const char *query_statementTwo = [querySQLFour UTF8String];
+                
+                if(sqlite3_prepare_v2(DB, query_statementTwo, -1, &statement, NULL) == SQLITE_OK)
+                {
+                    
+                    sqlite3_exec(DB, [querySQLFour UTF8String], NULL, NULL, NULL);
+                    
+                }
+            }
+            sqlite3_close(DB);
+        }
     
-        //Do some thing here
+        //Go To Last Page
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         PartDViewController *viewController = (PartDViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PartDViewController"];
         [self presentViewController:viewController animated:YES completion:nil];
