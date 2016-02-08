@@ -290,15 +290,14 @@
                                 <items>
                                     <navigationItem id="189-aq-vMf">
                                         <nil key="title"/>
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="6Vw-I3-Un2">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="6Vw-I3-Un2">
                                             <connections>
-                                                <segue destination="1W1-qk-WPs" kind="show" id="8TZ-HN-pZp"/>
+                                                <action selector="CancelButtonAction:" destination="BvS-YR-86d" id="sAK-jI-eyq"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="v4Q-lh-CNO">
                                             <connections>
-                                                <action selector="nextButton:" destination="BvS-YR-86d" id="aea-Fb-Zme"/>
-                                                <segue destination="sN0-Lu-vNa" kind="show" id="1fu-sU-vXD"/>
+                                                <action selector="nextButton:" destination="BvS-YR-86d" id="cMa-QG-dvr"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -323,6 +322,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="CancelButton" destination="6Vw-I3-Un2" id="DZj-mb-4Nk"/>
+                        <outlet property="NextButton" destination="v4Q-lh-CNO" id="37u-ab-SH0"/>
                         <outlet property="courseSelectPicker" destination="pvD-Tb-myu" id="YDW-L6-AwW"/>
                     </connections>
                 </viewController>
@@ -973,8 +974,7 @@
         <image name="NULogo.jpg" width="160" height="156"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8TZ-HN-pZp"/>
         <segue reference="XzJ-K5-UKI"/>
-        <segue reference="1fu-sU-vXD"/>
+        <segue reference="gMe-tN-dGY"/>
     </inferredMetricsTieBreakers>
 </document>

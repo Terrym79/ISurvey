@@ -58,28 +58,21 @@
                 introText.text = intText;
             }
         }
-        
-        
     }
     
     //diagnostic output to console
     printf("Entered username: %s\n", [studentID UTF8String]);
-
-    
 }
-
 
 //Passing values to next View controller (Part A)
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 {
-    
     CourseSelectViewController *csvc = [segue destinationViewController];
     csvc.studentID = studentID;
     
     //diagnostic output to console
     printf("Entered username: %s\n", [csvc.studentID UTF8String]);
     printf("Entered username: %s\n", [studentID UTF8String]);
-    
 }
 
 //Releases the keyboard
@@ -90,16 +83,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-//Passing values to next View controller (Part A)
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    CourseSelectViewController *csvc;
-    csvc  = [segue destinationViewController];
-    csvc.strStudentID = strStudentID;
-
 }
 
 /*

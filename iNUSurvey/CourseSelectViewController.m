@@ -8,6 +8,7 @@
 
 #import "CourseSelectViewController.h"
 #import "IntroViewController.h"
+#import "LoginViewController.h"
 
 //For passing values to the PartAViewController
 #import "PartAViewController.h"
@@ -17,7 +18,7 @@
 
 @implementation CourseSelectViewController
 
-@synthesize studentID, coursesToSelect, courseSelection, intEnrollmentID, strClassNo, databasePath, DB, courseSelectPicker, strDescription, strCourseNo, strEnrollmentID;
+@synthesize studentID, coursesToSelect, courseSelection, intEnrollmentID, strClassNo, databasePath, DB, courseSelectPicker, strDescription, strCourseNo, strEnrollmentID, CancelButton;
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -164,7 +165,33 @@
     printf("Entered courseNumber: %s\n", [pavc.strCourseNo UTF8String]);
 }
 
+//Cancel button clears variables, closes the DB, reloads the Login VC
+- (IBAction)CancelButtonAction:(id)sender {
+    //Close the database connection
+    sqlite3_close(DB);
+    
+    //Clear variables
+    intEnrollmentID = 0;
+    studentID = NULL;
+    [coursesToSelect removeAllObjects];
+    courseSelection = NULL;
+    strClassNo = NULL;
+    databasePath = NULL;
+    strDescription = NULL;
+    strCourseNo = NULL;
+    strEnrollmentID = NULL;
+    
+    //Return to LoginViewController
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *viewController = (LoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
+//Next button verifies that a selection has been made, the proceeds to Part A VC
 - (IBAction)nextButton:(id)sender {
+    
+    printf("courseSelection:  %s\n\n", [courseSelection UTF8String]);
+    
     if(courseSelection != NULL)
     {
         //Will move to next View controller
@@ -180,7 +207,11 @@
             
         [self presentViewController:loginFailed animated:YES completion:nil];
     }
-}
+    
+    //Return to LoginViewController
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PartAViewController *viewController = (PartAViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PartAViewController"];
+    [self presentViewController:viewController animated:YES completion:nil];}
 
 /*
 #pragma mark - Navigation

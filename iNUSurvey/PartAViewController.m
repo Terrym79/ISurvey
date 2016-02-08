@@ -19,7 +19,7 @@
 
 @implementation PartAViewController
 
-@synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID;
+@synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID, response;
 @synthesize DB, databasePath, question, questionArray, surveyPart, answerArray, QuestionLabel;
 @synthesize Button1, Button2, Button3, Button4, Button5, userAnswer, arrayCounter,questionIdArray;
 
@@ -133,7 +133,6 @@
 
 - (IBAction)ButtonAnswersAction:(id)sender {
     
-    
     UIButton *btn = (UIButton *)sender;
     NSString *title = btn.titleLabel.text;
     [self.answerArray addObject:title];
@@ -142,6 +141,27 @@
     if (userAnswer < arrayCounter) {
         QuestionLabel.text = questionArray[userAnswer];
         
+        //Detects which button was selected and assigns a value to the response
+        if ([sender isEqual:Button1]) {
+            response = 5;
+        }
+        if ([sender isEqual:Button2]) {
+            response = 4;
+        }
+        if ([sender isEqual:Button3]) {
+            response = 3;
+        }
+        if ([sender isEqual:Button4]) {
+            response = 2;
+        }
+        if ([sender isEqual:Button5]) {
+            response = 1;
+        }
+        
+        //Diagnostic console output
+        printf("user answer: %d\n", userAnswer);
+        printf("question id array: %s\n", [questionIdArray[userAnswer] UTF8String]);
+        printf("student response: %d\n\n", response);
     
     }
     else if (userAnswer >= arrayCounter) {

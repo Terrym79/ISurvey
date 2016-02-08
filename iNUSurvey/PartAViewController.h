@@ -16,6 +16,8 @@
 @property (nonatomic) int userAnswer;
 @property (nonatomic) int arrayCounter;
 
+//Stores the response 5=Strongly Agree, 4=Agree, etc.
+@property (nonatomic) int response;
 
 //BUTTONS
 @property (weak, nonatomic) IBOutlet UIButton *Button1;

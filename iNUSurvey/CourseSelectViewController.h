@@ -20,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *courseSelectPicker;
 @property (weak, nonatomic) NSString *courseSelection;
 
+//Button related properties
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *CancelButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *NextButton;
+
 //Data passing related properties
 @property (strong, nonatomic) NSString *studentID;
 @property (nonatomic) int intEnrollmentID;
@@ -27,4 +31,9 @@
 @property (strong, nonatomic) NSString *strCourseNo;
 @property (strong, nonatomic) NSString *strDescription;
 @property (strong, nonatomic) NSString *strEnrollmentID;
+
+//Methods
+- (IBAction) CancelButtonAction:(id)sender;
+- (IBAction) NextButtonAction:(id)sender;
+
 @end
