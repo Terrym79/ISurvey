@@ -91,8 +91,8 @@
                 NSLog(@"Login Successful\n");
                 
                 //diagnostic output to console
-                printf("Entered username: %s\n", [name UTF8String]);
-                printf("Entered password: %s\n", [pass UTF8String]);
+                printf("LoginModule Entered username: %s\n", [name UTF8String]);
+                printf("LoginModule Entered password: %s\n", [pass UTF8String]);
             }
             
             //StudentID and password are not a match-FAILURE

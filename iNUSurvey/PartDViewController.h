@@ -13,9 +13,6 @@
 
 //data values that are passed to this view controller
 @property (weak, nonatomic) NSString *studentID;
-@property (weak, nonatomic) NSString *strDescription;
-@property (weak, nonatomic) NSString *strCourseNo;
-@property (weak, nonatomic) NSString *strClassNo;
 @property (nonatomic) int intEnrollmentID;
 
 @property(strong, nonatomic) NSString *databasePath;
@@ -25,7 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *LogoutButton;
 
-- (IBAction)BackToCOurseButtonAction:(id)sender;
+- (IBAction)BackToCourseButtonAction:(id)sender;
 
 - (IBAction)LogoutButtonAction:(id)sender;
 

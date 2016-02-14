@@ -7,8 +7,6 @@
 //
 
 #import "IntroViewController.h"
-#import "CourseSelectViewController.h"
-
 
 //For passing values to the PartAViewController
 #import "CourseSelectViewController.h"
@@ -61,7 +59,7 @@
     }
     
     //diagnostic output to console
-    printf("Entered username: %s\n", [studentID UTF8String]);
+    printf("IntroModule Entered username: %s\n", [studentID UTF8String]);
 }
 
 //Passing values to next View controller (Part A)
@@ -71,8 +69,8 @@
     csvc.studentID = studentID;
     
     //diagnostic output to console
-    printf("Entered username: %s\n", [csvc.studentID UTF8String]);
-    printf("Entered username: %s\n", [studentID UTF8String]);
+    printf("IntroModule Entered username: %s\n", [csvc.studentID UTF8String]);
+    printf("IntroModule Entered username: %s\n", [studentID UTF8String]);
 }
 
 //Releases the keyboard

@@ -6,8 +6,6 @@
 //  Copyright © 2016 iSuperb. All rights reserved.
 //
 
-
-
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
 
@@ -19,6 +17,9 @@
 @property (weak, nonatomic) NSString *strCourseNo;
 @property (weak, nonatomic) NSString *strClassNo;
 @property (nonatomic) int intEnrollmentID;
+
+@property (weak, nonatomic) UIBarButtonItem *backButton;
+
 @property (nonatomic, retain)NSMutableArray *questionArray;
 @property (nonatomic, retain)NSMutableArray *questionIdArray;
 @property (nonatomic, retain)NSMutableArray *answerArray;
@@ -26,16 +27,14 @@
 @property (nonatomic, retain)NSMutableArray *questionIdArrayTwo;
 @property (nonatomic, retain)NSMutableArray *answerArrayTwo;
 
-
+//Comments textview
 @property (weak, nonatomic) IBOutlet UITextView *Comments;
 
+//DB variables
 @property(strong, nonatomic) NSString *databasePath;
 @property(nonatomic) sqlite3 *DB;
 
-
-
 // part of place holder
-//@property (weak, nonatomic) IBOutlet UITextField *textView;
 - (IBAction)showAlert:(id)sender;
-
+- (IBAction) BackButtonAction:(id)sender;
 @end

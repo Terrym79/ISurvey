@@ -18,7 +18,7 @@
 
 @implementation PartDViewController
 
-@synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID;
+@synthesize studentID, intEnrollmentID;
 @synthesize DB, databasePath, LogoutButton, BackToCourseButton;
 
 // part of placeholder
@@ -31,7 +31,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    //Diagnostic console output to show the variable data that is being passed to this view controller
+    printf("PartD %s\n", [studentID UTF8String]);
+    printf("PartD %d\n", intEnrollmentID);
     
 }
 
@@ -40,20 +43,35 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)BackToCOurseButtonAction:(id)sender {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LoginViewController *viewController = (LoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CourseSelectViewController"];
-    [self presentViewController:viewController animated:YES completion:nil];
+- (IBAction)BackToCourseButtonAction:(id)sender {
     
+    //Segue transition to CourseSelectViewController
+    [self performSegueWithIdentifier:@"PartDToCourseSelectSegue" sender:sender];
 }
 
 - (IBAction)LogoutButtonAction:(id)sender {
+    //Close database and clear variables
     sqlite3_close(DB);
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LoginViewController *viewController = (LoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    [self presentViewController:viewController animated:YES completion:nil];
+    studentID = NULL;
+    intEnrollmentID = 0;
     
-    
-    
+    //Segue transition to LoginViewController
+    [self performSegueWithIdentifier:@"PartDToLoginSegue" sender:sender];
 }
+
+//Passing values to next View controller (conditional)
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"PartDToCourseSelectSegue"]) {
+        CourseSelectViewController *csvc;
+        csvc  = [segue destinationViewController];
+        csvc.studentID = studentID;
+    }
+    
+    if([segue.identifier isEqualToString:@"PartDToLoginSegue"]) {
+        LoginViewController *lvc;
+        lvc  = [segue destinationViewController];
+    }
+}
+
 @end

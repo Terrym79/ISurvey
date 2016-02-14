@@ -297,7 +297,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="v4Q-lh-CNO">
                                             <connections>
-                                                <action selector="nextButton:" destination="BvS-YR-86d" id="cMa-QG-dvr"/>
+                                                <action selector="NextButtonAction:" destination="BvS-YR-86d" id="R7u-X8-ZWp"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -325,6 +325,7 @@
                         <outlet property="CancelButton" destination="6Vw-I3-Un2" id="DZj-mb-4Nk"/>
                         <outlet property="NextButton" destination="v4Q-lh-CNO" id="37u-ab-SH0"/>
                         <outlet property="courseSelectPicker" destination="pvD-Tb-myu" id="YDW-L6-AwW"/>
+                        <segue destination="sN0-Lu-vNa" kind="show" identifier="PartAViewControllerSegue" id="BM2-E6-soG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LaW-Ax-gwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -371,12 +372,12 @@
                                     <navigationItem title="CSC 480A" prompt="" id="B9J-Tx-8iX">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="cek-dZ-1qE">
                                             <connections>
-                                                <segue destination="BvS-YR-86d" kind="show" id="Mz4-AE-rw6"/>
+                                                <action selector="BackButtonAction:" destination="sN0-Lu-vNa" id="tbS-5Y-tBh"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="wt0-nE-N34">
                                             <connections>
-                                                <segue destination="v5S-bA-Rsr" kind="show" id="gMe-tN-dGY"/>
+                                                <action selector="NextButtonAction:" destination="sN0-Lu-vNa" id="Ort-PJ-eBC"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -467,13 +468,14 @@
                                     <action selector="ButtonAnswersAction:" destination="sN0-Lu-vNa" eventType="touchUpInside" id="rx9-LT-Y5c"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dV-7x-gLv">
-                                <rect key="frame" x="78" y="156" width="444" height="109"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dV-7x-gLv">
+                                <rect key="frame" x="20" y="156" width="560" height="104"/>
+                                <color key="backgroundColor" red="0.0078431372549019607" green="0.058823529411764705" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="109" id="6CD-ZT-dF5"/>
+                                    <constraint firstAttribute="height" constant="104" id="6CD-ZT-dF5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnI-oD-tVU">
@@ -494,11 +496,30 @@
                                     <action selector="ButtonAnswersAction:" destination="sN0-Lu-vNa" eventType="touchUpInside" id="hpb-wK-9kM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xme-8g-ksB">
+                                <rect key="frame" x="207" y="503" width="186" height="30"/>
+                                <color key="backgroundColor" red="0.71453851479999997" green="0.75357113659999997" blue="0.78766177400000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="N/A">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ButtonAnswersAction:" destination="sN0-Lu-vNa" eventType="touchUpInside" id="R1T-e6-L6o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0098138801559999999" green="0.086909045990000003" blue="0.26299321339999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="nUJ-ye-IyP" firstAttribute="top" secondItem="RDM-aj-9Vj" secondAttribute="bottom" id="0lZ-Qt-MMQ"/>
                             <constraint firstAttribute="trailing" secondItem="mTt-Ml-JVu" secondAttribute="trailing" id="1vT-4l-iNf"/>
+                            <constraint firstItem="Xme-8g-ksB" firstAttribute="centerX" secondItem="aYc-ZJ-amT" secondAttribute="centerX" id="2nq-d9-TrQ"/>
                             <constraint firstItem="YnI-oD-tVU" firstAttribute="width" secondItem="ZpX-3W-sjn" secondAttribute="width" id="4H5-kT-Z4b"/>
                             <constraint firstItem="KYe-KM-TCZ" firstAttribute="width" secondItem="ZpX-3W-sjn" secondAttribute="width" id="4kj-tB-Cpm"/>
                             <constraint firstItem="i6r-WE-pHv" firstAttribute="width" secondItem="ZpX-3W-sjn" secondAttribute="width" id="4wW-sL-xt4"/>
@@ -529,17 +550,22 @@
                             <constraint firstItem="ZpX-3W-sjn" firstAttribute="leading" secondItem="Eiz-27-JYE" secondAttribute="leading" id="uSC-HN-3Ff"/>
                             <constraint firstItem="9dV-7x-gLv" firstAttribute="top" secondItem="aYc-ZJ-amT" secondAttribute="top" constant="156" id="ucA-r1-Moh"/>
                             <constraint firstItem="i6r-WE-pHv" firstAttribute="centerX" secondItem="ZpX-3W-sjn" secondAttribute="centerX" id="vas-1a-D0H"/>
-                            <constraint firstItem="9dV-7x-gLv" firstAttribute="leading" secondItem="aYc-ZJ-amT" secondAttribute="leadingMargin" constant="58" id="yf9-R3-o1F"/>
+                            <constraint firstItem="9dV-7x-gLv" firstAttribute="leading" secondItem="aYc-ZJ-amT" secondAttribute="leadingMargin" id="yf9-R3-o1F"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fj2-jm-ZRs"/>
                     <connections>
-                        <outlet property="Button1" destination="wVU-sT-hgS" id="CNM-fB-aca"/>
-                        <outlet property="Button2" destination="i6r-WE-pHv" id="D5K-jx-9gF"/>
-                        <outlet property="Button3" destination="KYe-KM-TCZ" id="NAk-EW-Uux"/>
-                        <outlet property="Button4" destination="YnI-oD-tVU" id="Xfq-AO-PCX"/>
-                        <outlet property="Button5" destination="1s1-rk-UtE" id="KyN-jY-W9P"/>
+                        <outlet property="BackButton" destination="cek-dZ-1qE" id="mjx-Aa-zZf"/>
+                        <outlet property="Button0" destination="Xme-8g-ksB" id="7G0-CU-EAl"/>
+                        <outlet property="Button1" destination="1s1-rk-UtE" id="b8L-YO-vHT"/>
+                        <outlet property="Button2" destination="YnI-oD-tVU" id="Fwn-zf-Zxb"/>
+                        <outlet property="Button3" destination="KYe-KM-TCZ" id="hOw-gN-lW5"/>
+                        <outlet property="Button4" destination="i6r-WE-pHv" id="Qbh-4t-3Qt"/>
+                        <outlet property="Button5" destination="wVU-sT-hgS" id="Ive-MC-Cq7"/>
+                        <outlet property="CourseTitle" destination="mTt-Ml-JVu" id="6ks-ZC-Zoj"/>
+                        <outlet property="NextButton" destination="wt0-nE-N34" id="gBc-Mb-ODC"/>
                         <outlet property="QuestionLabel" destination="9dV-7x-gLv" id="DH9-Qa-GJ4"/>
+                        <segue destination="v5S-bA-Rsr" kind="show" identifier="PartBViewControllerSegue" id="J6Y-uD-fgM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t82-qI-aos" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -592,12 +618,13 @@
                                     <navigationItem title="CSC 480A" id="tJ2-Fx-EgY">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="raz-Yw-5be">
                                             <connections>
-                                                <segue destination="v5S-bA-Rsr" kind="show" id="LBg-Sz-Uog"/>
+                                                <action selector="BackButtonAction:" destination="1zn-ln-zwq" id="lPU-db-hLw"/>
+                                                <segue destination="v5S-bA-Rsr" kind="show" identifier="PartCToPartBSegue" id="xcl-pn-Ed2"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Submit" id="r28-YV-e5S">
                                             <connections>
-                                                <action selector="showAlert:" destination="1zn-ln-zwq" id="bPm-gi-KUF"/>
+                                                <action selector="showAlert:" destination="1zn-ln-zwq" id="6oW-Ha-7bV"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -636,6 +663,7 @@
                     <navigationItem key="navigationItem" id="bkE-43-asy"/>
                     <connections>
                         <outlet property="Comments" destination="0g8-9Q-O5M" id="X10-PZ-dtV"/>
+                        <segue destination="8K4-1e-fHF" kind="show" identifier="PartDViewController" id="zX9-mq-FLh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S8Q-K8-cv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -682,12 +710,12 @@
                                     <navigationItem title="CSC 480A" id="wBO-Hm-nUv">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="Eh5-mW-Kzh">
                                             <connections>
-                                                <segue destination="sN0-Lu-vNa" kind="show" id="aD7-wR-c04"/>
+                                                <action selector="BackButtonAction:" destination="v5S-bA-Rsr" id="HYv-1O-BhX"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="qBK-rJ-ooK">
                                             <connections>
-                                                <segue destination="1zn-ln-zwq" kind="show" id="JrQ-nz-ewU"/>
+                                                <action selector="NextButtonAction:" destination="v5S-bA-Rsr" id="YxX-c0-Vtt"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -706,7 +734,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUp-nb-OlJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUp-nb-OlJ">
                                 <rect key="frame" x="20" y="156" width="560" height="104"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="104" id="L5Q-y8-79w"/>
@@ -805,6 +833,24 @@
                                     <action selector="ButtonAnswersAction:" destination="v5S-bA-Rsr" eventType="touchUpInside" id="jIa-fN-WPX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXb-da-gWx">
+                                <rect key="frame" x="207" y="501" width="186" height="30"/>
+                                <color key="backgroundColor" red="0.71453851479999997" green="0.75357113659999997" blue="0.78766177400000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="N/A">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ButtonAnswersAction:" destination="v5S-bA-Rsr" eventType="touchUpInside" id="ruM-wP-wun"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0098138801559999999" green="0.086909045990000003" blue="0.26299321339999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -838,6 +884,7 @@
                             <constraint firstItem="fO1-aH-Fb9" firstAttribute="width" secondItem="5IK-pu-iJb" secondAttribute="width" id="lH3-1C-Pyk"/>
                             <constraint firstItem="gHw-xY-cxi" firstAttribute="centerX" secondItem="iU4-zy-LRm" secondAttribute="centerX" id="sUL-tR-yic"/>
                             <constraint firstItem="PLe-h2-QGZ" firstAttribute="centerX" secondItem="UdP-uV-ZUV" secondAttribute="centerX" id="tae-Ob-dwh"/>
+                            <constraint firstItem="BXb-da-gWx" firstAttribute="centerX" secondItem="iU4-zy-LRm" secondAttribute="centerX" id="tcI-uK-2zU"/>
                             <constraint firstItem="5IK-pu-iJb" firstAttribute="leading" secondItem="UdP-uV-ZUV" secondAttribute="leading" id="wng-xc-zCJ"/>
                             <constraint firstItem="MUp-nb-OlJ" firstAttribute="leading" secondItem="GlU-Gs-O6r" secondAttribute="leading" id="wv8-f8-NZf"/>
                             <constraint firstItem="GlU-Gs-O6r" firstAttribute="leading" secondItem="iU4-zy-LRm" secondAttribute="leadingMargin" id="y9k-ru-sGZ"/>
@@ -845,12 +892,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="nVP-9h-ju6"/>
                     <connections>
-                        <outlet property="Button1" destination="aRn-Zc-a51" id="alM-pH-l6W"/>
-                        <outlet property="Button2" destination="PLe-h2-QGZ" id="Cw6-Gm-Ns3"/>
-                        <outlet property="Button3" destination="gHw-xY-cxi" id="KMB-Ea-1n8"/>
-                        <outlet property="Button4" destination="fO1-aH-Fb9" id="7ky-3X-Wsn"/>
-                        <outlet property="Button5" destination="JUH-g1-Rsv" id="dlI-vG-Ad8"/>
+                        <outlet property="BackButton" destination="Eh5-mW-Kzh" id="7FC-nS-WXG"/>
+                        <outlet property="Button0" destination="BXb-da-gWx" id="2fv-ou-CYN"/>
+                        <outlet property="Button1" destination="JUH-g1-Rsv" id="lBG-5E-SMG"/>
+                        <outlet property="Button2" destination="fO1-aH-Fb9" id="sgf-dd-qbK"/>
+                        <outlet property="Button3" destination="gHw-xY-cxi" id="DRF-zF-Jt4"/>
+                        <outlet property="Button4" destination="PLe-h2-QGZ" id="MQg-g1-CsE"/>
+                        <outlet property="Button5" destination="aRn-Zc-a51" id="JIs-MZ-HLT"/>
+                        <outlet property="CourseTitle" destination="NMC-mC-iHA" id="ahm-6Q-KIw"/>
+                        <outlet property="NextButton" destination="qBK-rJ-ooK" id="wuB-tx-KIb"/>
                         <outlet property="QuestionLabel" destination="MUp-nb-OlJ" id="cNE-zt-NIP"/>
+                        <segue destination="1zn-ln-zwq" kind="show" identifier="SegueToPartC" id="3RL-gf-q1y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E5t-nK-8iM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -903,7 +955,8 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="BackToCOurseButtonAction:" destination="8K4-1e-fHF" eventType="touchUpInside" id="Mf2-Ka-Gph"/>
+                                    <action selector="BackToCourseButtonAction:" destination="8K4-1e-fHF" eventType="touchUpInside" id="Gyn-Ui-7P6"/>
+                                    <segue destination="BvS-YR-86d" kind="show" identifier="PartDToCourseSelectSegue" id="MU8-m7-lks"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyz-47-jfh">
@@ -921,6 +974,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="LogoutButtonAction:" destination="8K4-1e-fHF" eventType="touchUpInside" id="Pdh-oM-jSP"/>
+                                    <segue destination="Zjg-03-iMC" kind="show" identifier="PartDToLoginSegue" id="BWU-P6-qBh"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="END OF SURVEY" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqh-av-ceV">
@@ -974,7 +1028,7 @@
         <image name="NULogo.jpg" width="160" height="156"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="J6Y-uD-fgM"/>
         <segue reference="XzJ-K5-UKI"/>
-        <segue reference="gMe-tN-dGY"/>
     </inferredMetricsTieBreakers>
 </document>

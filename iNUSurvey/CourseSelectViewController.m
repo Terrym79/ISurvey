@@ -79,8 +79,8 @@
         else
         {
             //Diagnostic error messages if SQL query evaulation fails
-            NSLog(@"statement Error %d", sqlite3_prepare_v2(DB, query_statement, -1, &statement, NULL));
-            NSLog(@"Database returned error %d: %s", sqlite3_errcode(DB), sqlite3_errmsg(DB));
+            NSLog(@"CourseSelect Statement Error %d", sqlite3_prepare_v2(DB, query_statement, -1, &statement, NULL));
+            NSLog(@"CourseSelect Database returned error %d: %s", sqlite3_errcode(DB), sqlite3_errmsg(DB));
         }
     }
 }
@@ -135,16 +135,17 @@
                 strClassNo = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 3)];
                 
                 //Diagnostic output to console
-                printf("CourseNo: %s\n", [strCourseNo UTF8String]);
-                printf("EnrollmentID:  %d\n", intEnrollmentID);
-                printf("ClassNo:  %s\n\n", [strClassNo UTF8String]);
+                printf("CourseSelect StudentID: %s\n", [studentID UTF8String]);
+                printf("CourseSelect CourseNo: %s\n", [strCourseNo UTF8String]);
+                printf("CourseSelect EnrollmentID:  %d\n", intEnrollmentID);
+                printf("CourseSelect ClassNo:  %s\n\n", [strClassNo UTF8String]);
             }
             //No query results exist
             else
             {
                 //Diagnostic error messages if SQL query evaulation fails
-                NSLog(@"statement Error %d", sqlite3_prepare_v2(DB, query_statement, -1, &statement, NULL));
-                NSLog(@"Database returned error %d: %s", sqlite3_errcode(DB), sqlite3_errmsg(DB));
+                NSLog(@"CourseSelect statement Error %d", sqlite3_prepare_v2(DB, query_statement, -1, &statement, NULL));
+                NSLog(@"CourseSelect Database returned error %d: %s", sqlite3_errcode(DB), sqlite3_errmsg(DB));
             }
         }
     }
@@ -153,16 +154,17 @@
 //Passing values to next View controller (Part A)
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    PartAViewController *pavc;
-    pavc  = [segue destinationViewController];
-    pavc.studentID = studentID;
-    pavc.strDescription = strDescription;
-    pavc.strCourseNo = strCourseNo;
-    pavc.strClassNo = strClassNo;
-    pavc.intEnrollmentID = intEnrollmentID;
-    
-    printf("Entered username: %s\n", [pavc.studentID UTF8String]);
-    printf("Entered courseNumber: %s\n", [pavc.strCourseNo UTF8String]);
+    if ([segue.identifier isEqualToString:@"PartAViewControllerSegue"]){
+        PartAViewController *pavc;
+        pavc  = [segue destinationViewController];
+        pavc.studentID = studentID;
+        pavc.strDescription = strDescription;
+        pavc.strCourseNo = strCourseNo;
+        pavc.strClassNo = strClassNo;
+        pavc.intEnrollmentID = intEnrollmentID;
+        printf("Entered username: %s\n", [pavc.studentID UTF8String]);
+        printf("Entered courseNumber: %s\n", [pavc.strCourseNo UTF8String]);
+    }
 }
 
 //Cancel button clears variables, closes the DB, reloads the Login VC
@@ -188,30 +190,28 @@
 }
 
 //Next button verifies that a selection has been made, the proceeds to Part A VC
-- (IBAction)nextButton:(id)sender {
+- (IBAction)NextButtonAction:(id)sender {
     
     printf("courseSelection:  %s\n\n", [courseSelection UTF8String]);
     
     if(courseSelection != NULL)
     {
-        //Will move to next View controller
+        //Proceed to PartAViewController
+        [self performSegueWithIdentifier:@"PartAViewControllerSegue" sender:sender];
     }
+    
     //If no course selection is made, an error will occur, forcing a selection retry
     else
     {
-        UIAlertController *loginFailed = [UIAlertController alertControllerWithTitle: @"Selection Error" message: @"Course was not selected.\n\n  Please try again" preferredStyle: UIAlertControllerStyleAlert];
+        UIAlertController *NoCourseSelection = [UIAlertController alertControllerWithTitle: @"Selection Error" message: @"Course was not selected.\n\n  Please try again" preferredStyle: UIAlertControllerStyleAlert];
             
         UIAlertAction *alertAction = [UIAlertAction actionWithTitle: @"Dismiss" style: UIAlertActionStyleDestructive handler: nil];
             
-        [loginFailed addAction: alertAction];
+        [NoCourseSelection addAction: alertAction];
             
-        [self presentViewController:loginFailed animated:YES completion:nil];
+        [self presentViewController:NoCourseSelection animated:YES completion:nil];
     }
-    
-    //Return to LoginViewController
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    PartAViewController *viewController = (PartAViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PartAViewController"];
-    [self presentViewController:viewController animated:YES completion:nil];}
+}
 
 /*
 #pragma mark - Navigation
