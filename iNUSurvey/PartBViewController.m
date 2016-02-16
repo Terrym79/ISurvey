@@ -18,7 +18,7 @@
 
 @implementation PartBViewController
 
-@synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID, answerValue;
+@synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID, answerValue, answerArray, questionIdArray;
 @synthesize DB, databasePath, question, questionArrayTwo, surveyPart, answerArrayTwo, QuestionLabel;
 @synthesize Button0, Button1, Button2, Button3, Button4, Button5, userAnswerTwo, arrayCounter,questionIdArrayTwo, BackButton;
 
@@ -124,13 +124,19 @@
     }
     
     arrayCounter = [questionArrayTwo count];
+    
+    //Initializes the answer array for PartB
+    for (NSInteger i = 0; i < arrayCounter; ++i)
+    {
+        [answerArrayTwo addObject:[NSNull null]];
+    }
 }
 
 - (IBAction)ButtonAnswersAction:(id)sender {
     
-    UIButton *btn = (UIButton *)sender;
-    NSString *title = btn.titleLabel.text;
-    [self.answerArrayTwo addObject:title];
+    //UIButton *btn = (UIButton *)sender;
+    //NSString *title = btn.titleLabel.text;
+    //[self.answerArrayTwo addObject:title];
     
     //Detects which button was selected and assigns a value to the response
     if ([sender isEqual:Button5]) {         //Strongly Agree = 5
@@ -174,6 +180,10 @@
     pcvc.strCourseNo = strCourseNo;
     pcvc.strClassNo = strClassNo;
     pcvc.intEnrollmentID = intEnrollmentID;
+    pcvc.answerArray = answerArray;
+    pcvc.questionIdArray = questionIdArray;
+    pcvc.answerArrayTwo = answerArrayTwo;
+    pcvc.questionIdArrayTwo = questionIdArrayTwo;
 }
 
 -(IBAction)NextButtonAction:(id)sender {
@@ -190,12 +200,8 @@
     
     else {
         
-        //SQL Statement IF EXIST record for EnrollmentID and QuestionID
-        //SQL Statement YES = UPDATE with answerVallue
-        //SQL Statement NO = INSERT with answerValue
-        //
-        //
-        ////////////////////////////////////////////////////////////////////////////////////////////
+        //Populates userAnswerTwo array for Part B
+        [answerArrayTwo replaceObjectAtIndex:userAnswerTwo withObject: [NSNumber numberWithInt:answerValue]];
         
         //Increments to next array element
         userAnswerTwo++;
@@ -214,7 +220,7 @@
         }
         
         //Last question answered, proceed to PartB
-        else if (userAnswerTwo >= arrayCounter) {
+        else if(userAnswerTwo >= arrayCounter) {
             
             //Segue transition to PartCViewController
             [self performSegueWithIdentifier:@"SegueToPartC" sender:sender];

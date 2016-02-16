@@ -35,11 +35,11 @@
 @property (nonatomic, retain) NSString *question;
 @property (nonatomic, retain) NSString *surveyPart;
 
-/*
-@property (nonatomic, retain)NSMutableArray *questionArray;
+
+//@property (nonatomic, retain)NSMutableArray *questionArray;
 @property (nonatomic, retain)NSMutableArray *questionIdArray;
 @property (nonatomic, retain)NSMutableArray *answerArray;
- */
+
 
 @property (nonatomic, retain)NSMutableArray *questionArrayTwo;
 @property (nonatomic, retain)NSMutableArray *questionIdArrayTwo;
