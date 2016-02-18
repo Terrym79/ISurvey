@@ -73,21 +73,6 @@
         
         //User Text Comments
         NSString *commentsText = Comments.text;
- 
-        
-        //SQL query to INSERT the comments into the Part=A, QuestionNo=1 record for the student
-        //SQL statement goes here
-        //
-        //
-        ////////////////////////////////////////////////////////////////////////////////////////
-        
-        
-        //SQL query to UPDATE the Enrollment record SurveyCompleted bit = 1 (completed)
-        //SQL statement goes here
-        //
-        //
-        ///////////////////////////////////////////////////////////////////////////////////////
-        
         
         //Database open is successful
         //FOR PART A

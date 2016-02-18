@@ -49,6 +49,7 @@
 @property(strong, nonatomic) NSString *databasePath;
 @property(nonatomic) sqlite3 *DB;
 
+
 - (IBAction)ButtonAnswersAction:(id)sender;
 - (IBAction) NextButtonAction:(id)sender;
 - (IBAction) BackButtonAction:(id)sender;

@@ -21,7 +21,7 @@
 
 @synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID, answerValue;
 @synthesize DB, databasePath, question, questionArray, surveyPart, answerArray, QuestionLabel;
-@synthesize Button0, Button1, Button2, Button3, Button4, Button5, userAnswer, arrayCounter,questionIdArray, BackButton;
+@synthesize Button0, Button1, Button2, Button3, Button4, Button5, userAnswer, arrayCounter, questionIdArray, BackButton;
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -124,13 +124,23 @@
     }
     
     arrayCounter = [questionArray count];
+    
+    //Initializes the answer array
+    //answerArray = [[NSMutableArray alloc] initWithCapacity:arrayCounter];
+    for (NSInteger i = 0; i < arrayCounter; ++i)
+    {
+        //[answerArray addObject:[NSNull null]];
+      //[NSNumber numberWithInt:answerValue]];
+        
+        [answerArray addObject:[NSNumber numberWithInt:-1]];
+    }
 }
 
 - (IBAction)ButtonAnswersAction:(id)sender {
     
-    UIButton *btn = (UIButton *)sender;
-    NSString *title = btn.titleLabel.text;
-    [self.answerArray addObject:title];
+    //UIButton *btn = (UIButton *)sender;
+   // NSString *title = btn.titleLabel.text;
+   // [self.answerArray addObject:title];
     
     //Detects which button was selected and assigns a value to the response
     if ([sender isEqual:Button5]) {         //Strongly Agree = 5
@@ -168,12 +178,14 @@
 {
     [segue.identifier isEqualToString:@"PartBViewControllerSegue"];
     PartBViewController *pbvc;
-    pbvc  = [segue destinationViewController];
+    pbvc = [segue destinationViewController];
     pbvc.studentID = studentID;
     pbvc.strDescription = strDescription;
     pbvc.strCourseNo = strCourseNo;
     pbvc.strClassNo = strClassNo;
     pbvc.intEnrollmentID = intEnrollmentID;
+    pbvc.answerArray = answerArray;
+    pbvc.questionIdArray = questionIdArray;
 }
 
 -(IBAction)NextButtonAction:(id)sender {
@@ -191,13 +203,7 @@
     
     else {
         
-        //SQL Statement IF EXIST record for EnrollmentID and QuestionID
-        //SQL Statement YES = UPDATE with answerVallue
-        //SQL Statement NO = INSERT with answerValue
-        //
-        //
-        /////////////////////////////////////////////////////////////////////////////////////////
-        
+        [answerArray replaceObjectAtIndex:userAnswer withObject: [NSNumber numberWithInt:answerValue]];
         
         //Increments to next array element
         userAnswer++;
@@ -211,7 +217,7 @@
         
         //Displays questions while inbounds of the array
         if (userAnswer < arrayCounter) {
-           
+            
             QuestionLabel.text = [NSString stringWithFormat: @"%d.  %@", userAnswer + 1, questionArray[userAnswer]];
         }
         
