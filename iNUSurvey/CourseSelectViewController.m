@@ -82,6 +82,9 @@
             NSLog(@"CourseSelect Statement Error %d", sqlite3_prepare_v2(DB, query_statement, -1, &statement, NULL));
             NSLog(@"CourseSelect Database returned error %d: %s", sqlite3_errcode(DB), sqlite3_errmsg(DB));
         }
+        
+        sqlite3_finalize(statement);
+        sqlite3_close(DB);
     }
 }
 
@@ -148,6 +151,8 @@
                 NSLog(@"CourseSelect Database returned error %d: %s", sqlite3_errcode(DB), sqlite3_errmsg(DB));
             }
         }
+        sqlite3_finalize(statement);
+        sqlite3_close(DB);
     }
 }
 

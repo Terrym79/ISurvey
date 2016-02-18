@@ -94,6 +94,7 @@
                 //Adds query result objects to the array
                 [questionArrayTwo addObject:[NSString stringWithUTF8String:(char *) sqlite3_column_text(statement, 0)]];
             }
+            
         }
         
         if(sqlite3_prepare_v2(DB, [querySQLTwo UTF8String], -1, &statementTwo, NULL) == SQLITE_OK) {
@@ -121,6 +122,11 @@
         printf("PartB %s\n", [strCourseNo UTF8String]);
         printf("PartB %s\n", [strClassNo UTF8String]);
         printf("PartB %d\n", intEnrollmentID);
+        
+        sqlite3_finalize(statement);
+        sqlite3_finalize(statementTwo);
+        sqlite3_close(DB);
+
     }
     
     arrayCounter = [questionArrayTwo count];
@@ -130,6 +136,8 @@
     {
         [answerArrayTwo addObject:[NSNull null]];
     }
+    
+
 }
 
 - (IBAction)ButtonAnswersAction:(id)sender {
@@ -141,21 +149,27 @@
     //Detects which button was selected and assigns a value to the response
     if ([sender isEqual:Button5]) {         //Strongly Agree = 5
         answerValue = 5;
+        Button5.backgroundColor = [UIColor greenColor];
     }
     else if ([sender isEqual:Button4]) {    //Agree = 4
         answerValue = 4;
+        Button4.backgroundColor = [UIColor greenColor];
     }
     else if ([sender isEqual:Button3]) {    //Neutral = 3
         answerValue = 3;
+        Button3.backgroundColor = [UIColor greenColor];
     }
     else if ([sender isEqual:Button2]) {    //Disagree = 2
         answerValue = 2;
+        Button2.backgroundColor = [UIColor greenColor];
     }
     else if ([sender isEqual:Button1]) {    //Strongly Disagree = 1
         answerValue = 1;
+        Button1.backgroundColor = [UIColor greenColor];
     }
     else if ([sender isEqual:Button0]) {    //Not Applicable = 0
         answerValue = 0;
+        Button0.backgroundColor = [UIColor greenColor];
     }
     
     //Diagnostic console output
@@ -184,9 +198,11 @@
     pcvc.questionIdArray = questionIdArray;
     pcvc.answerArrayTwo = answerArrayTwo;
     pcvc.questionIdArrayTwo = questionIdArrayTwo;
+    
 }
 
 -(IBAction)NextButtonAction:(id)sender {
+    
     
     //Generates an alert due to no selection being made
     if(answerValue == -1) {
@@ -199,6 +215,13 @@
     }
     
     else {
+        //Change button color back to original
+        Button0.backgroundColor = [UIColor lightGrayColor];
+        Button1.backgroundColor = [UIColor lightGrayColor];
+        Button2.backgroundColor = [UIColor lightGrayColor];
+        Button3.backgroundColor = [UIColor lightGrayColor];
+        Button4.backgroundColor = [UIColor lightGrayColor];
+        Button5.backgroundColor = [UIColor lightGrayColor];
         
         //Populates userAnswerTwo array for Part B
         [answerArrayTwo replaceObjectAtIndex:userAnswerTwo withObject: [NSNumber numberWithInt:answerValue]];
@@ -229,6 +252,14 @@
 }
 
 -(IBAction)BackButtonAction:(id)sender {
+    
+    //Change button color back to original
+    Button0.backgroundColor = [UIColor lightGrayColor];
+    Button1.backgroundColor = [UIColor lightGrayColor];
+    Button2.backgroundColor = [UIColor lightGrayColor];
+    Button3.backgroundColor = [UIColor lightGrayColor];
+    Button4.backgroundColor = [UIColor lightGrayColor];
+    Button5.backgroundColor = [UIColor lightGrayColor];
     //Decrements an array element
     --userAnswerTwo;
     

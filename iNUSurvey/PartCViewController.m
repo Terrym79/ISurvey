@@ -33,6 +33,7 @@
     printf("PartC %s\n", [strCourseNo UTF8String]);
     printf("PartC %s\n", [strClassNo UTF8String]);
     printf("PartC %d\n", intEnrollmentID);
+    sqlite3_close(DB);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,8 +61,7 @@
     
     NSFileManager *filemgr = [NSFileManager defaultManager];
     
-    sqlite3_stmt *statement;
-    const char *dbpath = [databasePath UTF8String];
+
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"CONFIRMATION" message:@"Are you ready to submit your responses?" preferredStyle:UIAlertControllerStyleAlert];
     
@@ -76,6 +76,9 @@
         
         //Database open is successful
         //FOR PART A
+        sqlite3_stmt *statement;
+        const char *dbpath = [databasePath UTF8String];
+        
         for(int i = 0; i < [questionIdArray count]; i++)
         {
             
@@ -89,15 +92,22 @@
             {
                 NSString *querySQLThree = [NSString stringWithFormat: @"INSERT INTO RESPONSES (EnrollmentID, QuestionID, QuestionResponse, Comment) VALUES ('%d', '%ld', '%@', '%@')", intEnrollmentID, (long)value, answerString, commentsText];
                 
-                 const char *query_statementOne = [querySQLThree UTF8String];
+                const char *query_statementOne = [querySQLThree UTF8String];
+                char *err;
+                sqlite3_busy_timeout(DB, 500);
                 
-                if(sqlite3_prepare_v2(DB, query_statementOne, -1, &statement, NULL) == SQLITE_OK)
+                if(sqlite3_exec(DB, query_statementOne, NULL, NULL, &err) != SQLITE_OK)
                 {
-            
-                sqlite3_exec(DB, [querySQLThree UTF8String], NULL, NULL, NULL);
-                
+                    
+                    sqlite3_close(DB);
+                    NSLog(@"DID NOT WORK");
+                }
+                else{
+                    NSLog(@"IT WORKED!");
                 }
             }
+            
+            sqlite3_finalize(statement);
             sqlite3_close(DB);
         }
         
@@ -117,11 +127,21 @@
                 
                 const char *query_statementTwo = [querySQLFour UTF8String];
                 
-                if(sqlite3_prepare_v2(DB, query_statementTwo, -1, &statement, NULL) == SQLITE_OK)
+                sqlite3_busy_timeout(DB, 500);
+                char *err;
+                
+                if(sqlite3_exec(DB, query_statementTwo, NULL, NULL, &err) != SQLITE_OK)
                 {
-                    sqlite3_exec(DB, [querySQLFour UTF8String], NULL, NULL, NULL);
+                    
+                    sqlite3_close(DB);
+                    NSLog(@"DID NOT WORK");
                 }
+                else{
+                    NSLog(@"IT WORKED!");
+                }
+
             }
+            sqlite3_finalize(statement);
             sqlite3_close(DB);
         }
         

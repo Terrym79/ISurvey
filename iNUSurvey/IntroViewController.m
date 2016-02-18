@@ -56,6 +56,9 @@
                 introText.text = intText;
             }
         }
+        
+        sqlite3_finalize(statement);
+        sqlite3_close(DB);
     }
     
     //diagnostic output to console

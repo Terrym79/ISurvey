@@ -113,6 +113,8 @@
                 sqlite3_close(_DB);
             }
         }
+        sqlite3_finalize(statement);
+        sqlite3_close(_DB);
     }
     
 }
