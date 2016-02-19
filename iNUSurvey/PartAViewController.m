@@ -78,7 +78,7 @@
     if(sqlite3_open(dbpath, &DB) == SQLITE_OK)
     {
         surveyPart = @"A";
-        strCourseNo = @"CSC 480A";
+        //strCourseNo =  @"CSC 480A";
     
     //Query to get all of the questions
     NSString *querySQL = [NSString stringWithFormat:@"SELECT SURVEY_QUESTIONS.Question FROM SURVEY_QUESTIONS WHERE SURVEY_QUESTIONS.CourseNo = '%@' AND SURVEY_QUESTIONS.SurveyPart = '%@'", strCourseNo, surveyPart];
