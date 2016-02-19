@@ -107,8 +107,7 @@
                 }
             }
             
-            sqlite3_finalize(statement);
-            sqlite3_close(DB);
+
         }
         
         
@@ -141,9 +140,30 @@
                 }
 
             }
-            sqlite3_finalize(statement);
-            sqlite3_close(DB);
+
         }
+        
+        if(sqlite3_open(dbpath, &DB) == SQLITE_OK)
+        {
+            NSString *querySQLFour = [NSString stringWithFormat: @"UPDATE ENROLLMENT SET SurveyCompleted = 1 where EnrollmentID = '%d'", intEnrollmentID];
+            
+            const char *query_statementThree = [querySQLFour UTF8String];
+            char *err;
+            sqlite3_busy_timeout(DB, 500);
+            
+            if(sqlite3_exec(DB, query_statementThree, NULL, NULL, &err) != SQLITE_OK)
+            {
+                
+                sqlite3_close(DB);
+                NSLog(@"DID NOT WORK");
+            }
+            else{
+                NSLog(@"IT WORKED!");
+            }
+        }
+        
+        //sqlite3_finalize(statement);
+        sqlite3_close(DB);
         
         //Set the SurveyCompleted Flag (ENROLLMENT TABLE) = 1 (completed)
         //SQL Statement to UPDATE Record
