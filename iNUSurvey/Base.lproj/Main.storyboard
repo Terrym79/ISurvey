@@ -369,7 +369,7 @@
                                 </constraints>
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="CSC 480A" prompt="" id="B9J-Tx-8iX">
+                                    <navigationItem prompt="" id="B9J-Tx-8iX">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="cek-dZ-1qE">
                                             <connections>
                                                 <action selector="BackButtonAction:" destination="sN0-Lu-vNa" id="tbS-5Y-tBh"/>
@@ -514,16 +514,23 @@
                                     <action selector="ButtonAnswersAction:" destination="sN0-Lu-vNa" eventType="touchUpInside" id="rx9-LT-Y5c"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dC1-PC-uN0">
+                                <rect key="frame" x="240" y="556" width="121" height="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0098138801559999999" green="0.086909045990000003" blue="0.26299321339999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="nUJ-ye-IyP" firstAttribute="top" secondItem="RDM-aj-9Vj" secondAttribute="bottom" id="0lZ-Qt-MMQ"/>
                             <constraint firstAttribute="trailing" secondItem="mTt-Ml-JVu" secondAttribute="trailing" id="1vT-4l-iNf"/>
+                            <constraint firstItem="7CH-8e-SsM" firstAttribute="top" secondItem="dC1-PC-uN0" secondAttribute="bottom" constant="12" id="3di-IF-8yH"/>
                             <constraint firstItem="YnI-oD-tVU" firstAttribute="width" secondItem="ZpX-3W-sjn" secondAttribute="width" id="4H5-kT-Z4b"/>
                             <constraint firstItem="KYe-KM-TCZ" firstAttribute="width" secondItem="ZpX-3W-sjn" secondAttribute="width" id="4kj-tB-Cpm"/>
                             <constraint firstItem="i6r-WE-pHv" firstAttribute="width" secondItem="ZpX-3W-sjn" secondAttribute="width" id="4wW-sL-xt4"/>
                             <constraint firstItem="KYe-KM-TCZ" firstAttribute="centerX" secondItem="ZpX-3W-sjn" secondAttribute="centerX" id="5ZY-1w-5Z3"/>
                             <constraint firstItem="ZpX-3W-sjn" firstAttribute="top" secondItem="RDM-aj-9Vj" secondAttribute="bottom" constant="35" id="5hh-MP-jw5"/>
+                            <constraint firstItem="dC1-PC-uN0" firstAttribute="centerX" secondItem="aYc-ZJ-amT" secondAttribute="centerX" id="7T3-Bd-xYL"/>
                             <constraint firstItem="mTt-Ml-JVu" firstAttribute="leading" secondItem="aYc-ZJ-amT" secondAttribute="leading" id="9nA-Ln-yCS"/>
                             <constraint firstItem="hjW-x6-9GJ" firstAttribute="trailing" secondItem="ZpX-3W-sjn" secondAttribute="trailing" id="BeA-zs-Mb9"/>
                             <constraint firstItem="hjW-x6-9GJ" firstAttribute="leading" secondItem="ZpX-3W-sjn" secondAttribute="leading" id="Fd7-ZG-efD"/>
@@ -564,6 +571,7 @@
                         <outlet property="Button3" destination="KYe-KM-TCZ" id="hOw-gN-lW5"/>
                         <outlet property="Button4" destination="i6r-WE-pHv" id="Qbh-4t-3Qt"/>
                         <outlet property="Button5" destination="wVU-sT-hgS" id="Ive-MC-Cq7"/>
+                        <outlet property="CourseNoLabel" destination="dC1-PC-uN0" id="GXp-1h-YZa"/>
                         <outlet property="CourseTitle" destination="mTt-Ml-JVu" id="6ks-ZC-Zoj"/>
                         <outlet property="NextButton" destination="wt0-nE-N34" id="gBc-Mb-ODC"/>
                         <outlet property="QuestionLabel" destination="9dV-7x-gLv" id="DH9-Qa-GJ4"/>
@@ -617,7 +625,7 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="CSC 480A" id="tJ2-Fx-EgY">
+                                    <navigationItem id="tJ2-Fx-EgY">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="raz-Yw-5be">
                                             <connections>
                                                 <action selector="BackButtonAction:" destination="1zn-ln-zwq" id="lPU-db-hLw"/>
@@ -639,6 +647,11 @@
                                     <constraint firstAttribute="height" constant="35" id="Ijw-D0-3MD"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9F-C1-qCC">
+                                <rect key="frame" x="240" y="556" width="121" height="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0098138801559999999" green="0.086909045990000003" blue="0.26299321339999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -646,10 +659,12 @@
                             <constraint firstItem="0g8-9Q-O5M" firstAttribute="top" secondItem="7vp-Rs-MnZ" secondAttribute="bottom" constant="25" id="6np-9p-C3Y"/>
                             <constraint firstItem="YlF-22-KTu" firstAttribute="centerY" secondItem="l5Z-Ql-8G9" secondAttribute="centerY" id="9Ag-lP-ndZ"/>
                             <constraint firstItem="7vp-Rs-MnZ" firstAttribute="trailing" secondItem="if4-9c-fZI" secondAttribute="trailing" id="Gs3-OG-w6l"/>
+                            <constraint firstItem="ewf-0k-gqh" firstAttribute="top" secondItem="o9F-C1-qCC" secondAttribute="bottom" constant="12" id="KmB-oz-yZM"/>
                             <constraint firstItem="if4-9c-fZI" firstAttribute="top" secondItem="avX-Co-Pfn" secondAttribute="bottom" constant="35" id="MvG-SR-U0I"/>
                             <constraint firstItem="0g8-9Q-O5M" firstAttribute="leading" secondItem="YlF-22-KTu" secondAttribute="leading" id="Nnz-sR-wtG"/>
                             <constraint firstItem="l5Z-Ql-8G9" firstAttribute="top" secondItem="hYj-oi-H4Y" secondAttribute="topMargin" constant="-4" id="Nwz-ad-43i"/>
                             <constraint firstItem="7vp-Rs-MnZ" firstAttribute="top" secondItem="l5Z-Ql-8G9" secondAttribute="bottom" constant="3" id="Uat-R8-dbM"/>
+                            <constraint firstItem="o9F-C1-qCC" firstAttribute="centerX" secondItem="hYj-oi-H4Y" secondAttribute="centerX" id="UvH-6e-np5"/>
                             <constraint firstAttribute="trailing" secondItem="8Hl-V9-NKS" secondAttribute="trailing" id="aY7-xP-ckM"/>
                             <constraint firstItem="if4-9c-fZI" firstAttribute="leading" secondItem="l5Z-Ql-8G9" secondAttribute="leading" id="cnd-wT-fhc"/>
                             <constraint firstItem="0g8-9Q-O5M" firstAttribute="centerX" secondItem="8Hl-V9-NKS" secondAttribute="centerX" id="dNC-qD-jsP"/>
@@ -665,6 +680,7 @@
                     <navigationItem key="navigationItem" id="bkE-43-asy"/>
                     <connections>
                         <outlet property="Comments" destination="0g8-9Q-O5M" id="X10-PZ-dtV"/>
+                        <outlet property="CourseNoLabel" destination="o9F-C1-qCC" id="Znm-59-OJx"/>
                         <segue destination="8K4-1e-fHF" kind="show" identifier="PartDViewController" id="zX9-mq-FLh"/>
                     </connections>
                 </viewController>
@@ -709,7 +725,7 @@
                                 </constraints>
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="CSC 480A" id="wBO-Hm-nUv">
+                                    <navigationItem id="wBO-Hm-nUv">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="Eh5-mW-Kzh">
                                             <connections>
                                                 <action selector="BackButtonAction:" destination="v5S-bA-Rsr" id="HYv-1O-BhX"/>
@@ -853,6 +869,11 @@
                                     <action selector="ButtonAnswersAction:" destination="v5S-bA-Rsr" eventType="touchUpInside" id="ruM-wP-wun"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdG-8G-gak">
+                                <rect key="frame" x="240" y="556" width="121" height="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0098138801559999999" green="0.086909045990000003" blue="0.26299321339999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -868,6 +889,7 @@
                             <constraint firstItem="aRn-Zc-a51" firstAttribute="width" secondItem="5IK-pu-iJb" secondAttribute="width" id="9hZ-Yv-Ebb"/>
                             <constraint firstItem="gHw-xY-cxi" firstAttribute="width" secondItem="5IK-pu-iJb" secondAttribute="width" id="A7F-Eb-CQf"/>
                             <constraint firstItem="fO1-aH-Fb9" firstAttribute="centerX" secondItem="5IK-pu-iJb" secondAttribute="centerX" id="Ada-2R-e0T"/>
+                            <constraint firstItem="rdG-8G-gak" firstAttribute="centerX" secondItem="iU4-zy-LRm" secondAttribute="centerX" id="D4O-IU-i3p"/>
                             <constraint firstItem="uxL-kj-71Z" firstAttribute="top" secondItem="iU4-zy-LRm" secondAttribute="topMargin" constant="-4" id="GsP-ub-F9F"/>
                             <constraint firstItem="gHw-xY-cxi" firstAttribute="centerX" secondItem="5IK-pu-iJb" secondAttribute="centerX" id="HMl-Qi-Eor"/>
                             <constraint firstAttribute="trailing" secondItem="NMC-mC-iHA" secondAttribute="trailing" id="I1u-1N-9dU"/>
@@ -882,6 +904,7 @@
                             <constraint firstItem="BXb-da-gWx" firstAttribute="centerX" secondItem="iU4-zy-LRm" secondAttribute="centerX" id="aYt-4z-kpZ"/>
                             <constraint firstItem="fO1-aH-Fb9" firstAttribute="centerX" secondItem="iU4-zy-LRm" secondAttribute="centerX" id="cfV-23-1TX"/>
                             <constraint firstItem="NMC-mC-iHA" firstAttribute="leading" secondItem="iU4-zy-LRm" secondAttribute="leading" id="f1X-nm-OMc"/>
+                            <constraint firstItem="AZY-UK-R3l" firstAttribute="top" secondItem="rdG-8G-gak" secondAttribute="bottom" constant="12" id="feZ-r7-e5Z"/>
                             <constraint firstItem="MUp-nb-OlJ" firstAttribute="centerX" secondItem="aRn-Zc-a51" secondAttribute="centerX" id="fyt-XI-RRi"/>
                             <constraint firstItem="PLe-h2-QGZ" firstAttribute="centerX" secondItem="iU4-zy-LRm" secondAttribute="centerX" id="goK-Vm-7vJ"/>
                             <constraint firstItem="aRn-Zc-a51" firstAttribute="top" secondItem="MUp-nb-OlJ" secondAttribute="bottom" constant="25" id="j4x-PE-Scx"/>
@@ -903,6 +926,7 @@
                         <outlet property="Button3" destination="gHw-xY-cxi" id="DRF-zF-Jt4"/>
                         <outlet property="Button4" destination="PLe-h2-QGZ" id="MQg-g1-CsE"/>
                         <outlet property="Button5" destination="aRn-Zc-a51" id="JIs-MZ-HLT"/>
+                        <outlet property="CourseNoLabel" destination="rdG-8G-gak" id="EBa-3W-sep"/>
                         <outlet property="CourseTitle" destination="NMC-mC-iHA" id="ahm-6Q-KIw"/>
                         <outlet property="NextButton" destination="qBK-rJ-ooK" id="wuB-tx-KIb"/>
                         <outlet property="QuestionLabel" destination="MUp-nb-OlJ" id="cNE-zt-NIP"/>
@@ -1032,7 +1056,7 @@
         <image name="NULogo.jpg" width="160" height="156"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="xcl-pn-Ed2"/>
         <segue reference="MU8-m7-lks"/>
-        <segue reference="J6Y-uD-fgM"/>
     </inferredMetricsTieBreakers>
 </document>

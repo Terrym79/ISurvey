@@ -19,6 +19,7 @@
 @property (nonatomic) int intEnrollmentID;
 
 @property (weak, nonatomic) UIBarButtonItem *backButton;
+@property (weak, nonatomic) IBOutlet UILabel *CourseNoLabel;
 
 @property (nonatomic, retain)NSMutableArray *questionArray;
 @property (nonatomic, retain)NSMutableArray *questionIdArray;

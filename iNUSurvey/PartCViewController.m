@@ -16,7 +16,7 @@
 
 @implementation PartCViewController
 
-@synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID, DB, databasePath, Comments;
+@synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID, DB, databasePath, Comments, CourseNoLabel;
 @synthesize questionIdArray, answerArray, questionIdArrayTwo, answerArrayTwo;
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -26,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //Display the course number at bottom label
+    CourseNoLabel.text = strCourseNo;
     
     //Diagnostic console output to show the variable data that is being passed to this view controller
     printf("PartC %s\n", [studentID UTF8String]);
@@ -165,12 +168,6 @@
         //sqlite3_finalize(statement);
         sqlite3_close(DB);
         
-        //Set the SurveyCompleted Flag (ENROLLMENT TABLE) = 1 (completed)
-        //SQL Statement to UPDATE Record
-        //
-        //
-        ///////////////////////////////////////////////////////////////////////
-      
         //Segue transition to PartDViewController
         [self performSegueWithIdentifier:@"PartDViewController" sender:sender];
         

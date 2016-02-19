@@ -18,7 +18,7 @@
 
 @implementation PartBViewController
 
-@synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID, answerValue, answerArray, questionIdArray;
+@synthesize strClassNo, strCourseNo, strDescription, studentID, intEnrollmentID, answerValue, answerArray, questionIdArray, CourseNoLabel;
 @synthesize DB, databasePath, question, questionArrayTwo, surveyPart, answerArrayTwo, QuestionLabel;
 @synthesize Button0, Button1, Button2, Button3, Button4, Button5, userAnswerTwo, arrayCounter,questionIdArrayTwo, BackButton;
 
@@ -34,6 +34,8 @@
     questionIdArrayTwo = [[NSMutableArray alloc] init];
     userAnswerTwo = 0;
     
+    //Displays course number at bottom label
+    CourseNoLabel.text = strCourseNo;
     //Initializes the detection for no selection made alert
     answerValue = -1;
     
@@ -140,7 +142,30 @@
 
 }
 
+- (void) ResetButtonColors{
+    //Resets all buttons back to original color
+    [Button5 setBackgroundColor:[UIColor lightGrayColor]];
+    [Button5 setTitleColor:[UIColor whiteColor]forState:UIControlStateNormal];
+    
+    [Button4 setBackgroundColor:[UIColor lightGrayColor]];
+    [Button4 setTitleColor:[UIColor whiteColor]forState:UIControlStateNormal];
+    
+    [Button3 setBackgroundColor:[UIColor lightGrayColor]];
+    [Button3 setTitleColor:[UIColor whiteColor]forState:UIControlStateNormal];
+    
+    [Button2 setBackgroundColor:[UIColor lightGrayColor]];
+    [Button2 setTitleColor:[UIColor whiteColor]forState:UIControlStateNormal];
+    
+    [Button1 setBackgroundColor:[UIColor lightGrayColor]];
+    [Button1 setTitleColor:[UIColor whiteColor]forState:UIControlStateNormal];
+    
+    [Button0 setBackgroundColor:[UIColor lightGrayColor]];
+    [Button0 setTitleColor:[UIColor whiteColor]forState:UIControlStateNormal];
+}
+
 - (IBAction)ButtonAnswersAction:(id)sender {
+    
+    [self ResetButtonColors];
     
     //UIButton *btn = (UIButton *)sender;
     //NSString *title = btn.titleLabel.text;
@@ -149,27 +174,39 @@
     //Detects which button was selected and assigns a value to the response
     if ([sender isEqual:Button5]) {         //Strongly Agree = 5
         answerValue = 5;
-        Button5.backgroundColor = [UIColor greenColor];
+        //Button5.backgroundColor = [UIColor greenColor];
+        [Button5 setBackgroundColor:[UIColor whiteColor]];
+        [Button5 setTitleColor:[UIColor blackColor]forState:UIControlStateNormal];
     }
     else if ([sender isEqual:Button4]) {    //Agree = 4
         answerValue = 4;
-        Button4.backgroundColor = [UIColor greenColor];
+        //Button4.backgroundColor = [UIColor greenColor];
+        [Button4 setBackgroundColor:[UIColor whiteColor]];
+        [Button4 setTitleColor:[UIColor blackColor]forState:UIControlStateNormal];
     }
     else if ([sender isEqual:Button3]) {    //Neutral = 3
         answerValue = 3;
-        Button3.backgroundColor = [UIColor greenColor];
+        //Button3.backgroundColor = [UIColor greenColor];
+        [Button3 setBackgroundColor:[UIColor whiteColor]];
+        [Button3 setTitleColor:[UIColor blackColor]forState:UIControlStateNormal];
     }
     else if ([sender isEqual:Button2]) {    //Disagree = 2
         answerValue = 2;
-        Button2.backgroundColor = [UIColor greenColor];
+        //Button2.backgroundColor = [UIColor greenColor];
+        [Button2 setBackgroundColor:[UIColor whiteColor]];
+        [Button2 setTitleColor:[UIColor blackColor]forState:UIControlStateNormal];
     }
     else if ([sender isEqual:Button1]) {    //Strongly Disagree = 1
         answerValue = 1;
-        Button1.backgroundColor = [UIColor greenColor];
+        //Button1.backgroundColor = [UIColor greenColor];
+        [Button1 setBackgroundColor:[UIColor whiteColor]];
+        [Button1 setTitleColor:[UIColor blackColor]forState:UIControlStateNormal];
     }
     else if ([sender isEqual:Button0]) {    //Not Applicable = 0
         answerValue = 0;
-        Button0.backgroundColor = [UIColor greenColor];
+        //Button0.backgroundColor = [UIColor greenColor];
+        [Button0 setBackgroundColor:[UIColor whiteColor]];
+        [Button0 setTitleColor:[UIColor blackColor]forState:UIControlStateNormal];
     }
     
     //Diagnostic console output
@@ -215,6 +252,8 @@
     }
     
     else {
+        
+        /*
         //Change button color back to original
         Button0.backgroundColor = [UIColor lightGrayColor];
         Button1.backgroundColor = [UIColor lightGrayColor];
@@ -222,6 +261,9 @@
         Button3.backgroundColor = [UIColor lightGrayColor];
         Button4.backgroundColor = [UIColor lightGrayColor];
         Button5.backgroundColor = [UIColor lightGrayColor];
+        */
+        
+        [self ResetButtonColors];
         
         //Populates userAnswerTwo array for Part B
         [answerArrayTwo replaceObjectAtIndex:userAnswerTwo withObject: [NSNumber numberWithInt:answerValue]];
@@ -253,6 +295,7 @@
 
 -(IBAction)BackButtonAction:(id)sender {
     
+    /*
     //Change button color back to original
     Button0.backgroundColor = [UIColor lightGrayColor];
     Button1.backgroundColor = [UIColor lightGrayColor];
@@ -260,7 +303,11 @@
     Button3.backgroundColor = [UIColor lightGrayColor];
     Button4.backgroundColor = [UIColor lightGrayColor];
     Button5.backgroundColor = [UIColor lightGrayColor];
-    //Decrements an array element
+    */
+    
+     [self ResetButtonColors];
+    
+     //Decrements an array element
     --userAnswerTwo;
     
     //Landed at first question, disable BackButton and make invisible

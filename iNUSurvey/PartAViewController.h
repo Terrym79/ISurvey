@@ -12,6 +12,7 @@
 @interface PartAViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *QuestionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *CourseNoLabel;
 @property (weak, nonatomic) IBOutlet UINavigationBar *CourseTitle;
 
 @property (nonatomic) int userAnswer;
@@ -49,7 +50,7 @@
 @property(strong, nonatomic) NSString *databasePath;
 @property(nonatomic) sqlite3 *DB;
 
-
+- (void) ResetButtonColors;
 - (IBAction)ButtonAnswersAction:(id)sender;
 - (IBAction) NextButtonAction:(id)sender;
 - (IBAction) BackButtonAction:(id)sender;

@@ -12,6 +12,7 @@
 @interface PartBViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *QuestionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *CourseNoLabel;
 @property (weak, nonatomic) IBOutlet UINavigationBar *CourseTitle;
 
 @property (nonatomic) int userAnswerTwo;
@@ -58,6 +59,7 @@
 - (IBAction)ButtonAnswersAction:(id)sender;
 - (IBAction) NextButtonAction:(id)sender;
 - (IBAction) BackButtonAction:(id)sender;
+- (void) ResetButtonColors;
 
 @end
 
